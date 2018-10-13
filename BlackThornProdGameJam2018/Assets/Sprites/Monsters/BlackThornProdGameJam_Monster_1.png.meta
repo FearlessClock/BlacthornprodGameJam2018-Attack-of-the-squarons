@@ -1,0 +1,264 @@
+fileFormatVersion: 2
+guid: 5fd8eb54aa15e704cab8d1316d7be261
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BlackThornProdGameJam_Monster_1_0
+    21300002: BlackThornProdGameJam_Monster_1_1
+    21300004: BlackThornProdGameJam_Monster_1_2
+    21300006: BlackThornProdGameJam_Monster_1_3
+    21300008: BlackThornProdGameJam_Monster_1_4
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 15, y: 34, z: 520, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlackThornProdGameJam_Monster_1_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 48
+        width: 564
+        height: 503
+      alignment: 9
+      pivot: {x: 0.54967505, y: 0.29164344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb817feb1b3cdd0449de11b2004deb06
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackThornProdGameJam_Monster_1_1
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 319
+        width: 174
+        height: 184
+      alignment: 9
+      pivot: {x: 0.9472656, y: 0.06012361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c19331c207a7b4d8638606191aa63f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackThornProdGameJam_Monster_1_2
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 313
+        width: 179
+        height: 185
+      alignment: 9
+      pivot: {x: 0.042039584, y: 0.023238724}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e405616f61ec27749beb588b633c19d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackThornProdGameJam_Monster_1_3
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 58
+        width: 108
+        height: 147
+      alignment: 9
+      pivot: {x: 0.94196516, y: 0.97294575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861d4430eb127a04aa48f5ceae4f7138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackThornProdGameJam_Monster_1_4
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 59
+        width: 116
+        height: 137
+      alignment: 9
+      pivot: {x: 0.29425734, y: 0.96202254}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807f318415ad8074aa56dfb9678ef0b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -122, y: 116}
+      - {x: -224, y: 270}
+      - {x: -262, y: 270}
+      - {x: -533, y: -209}
+      - {x: -533, y: -235}
+      - {x: -530, y: -237}
+      - {x: -303, y: -237}
+      - {x: 29, y: -221}
+      - {x: 35, y: -210}
+      - {x: 35, y: -196}
+    - - {x: 176, y: -76}
+      - {x: 89, y: -172}
+      - {x: 89, y: -227}
+      - {x: 201, y: -227}
+      - {x: 201, y: -76}
+    - - {x: 334, y: -85}
+      - {x: 331, y: -88}
+      - {x: 309, y: -147}
+      - {x: 309, y: -221}
+      - {x: 426, y: -221}
+      - {x: 426, y: -165}
+      - {x: 361, y: -85}
+    - - {x: 529, y: 217}
+      - {x: 443, y: 217}
+      - {x: 392, y: 143}
+      - {x: 346, y: 48}
+      - {x: 346, y: 28}
+      - {x: 428, y: 28}
+      - {x: 465, y: 44}
+      - {x: 491, y: 61}
+      - {x: 529, y: 160}
+    - - {x: 81, y: 222}
+      - {x: 81, y: 138}
+      - {x: 98, y: 56}
+      - {x: 126, y: 34}
+      - {x: 259, y: 34}
+      - {x: 259, y: 117}
+      - {x: 197, y: 222}
+    physicsShape: []
+    bones: []
+    spriteID: 00941754dfcef0741bd9de965901aa41
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

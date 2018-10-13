@@ -1,0 +1,1 @@
+public enum ShapeType { Circle, Line };

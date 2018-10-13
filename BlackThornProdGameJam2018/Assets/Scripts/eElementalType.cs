@@ -1,0 +1,1 @@
+public enum ElementalType  {fire, water, ice, ground, death, poison}
