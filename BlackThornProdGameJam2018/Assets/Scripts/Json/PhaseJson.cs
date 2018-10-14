@@ -9,6 +9,7 @@ public class PhaseJson {
       public ShapeJson[] shapesArray ;
       [NonSerialized]
 	public List<ShapeJson> shapes = new List<ShapeJson>();
+      public float phaseDuration;
       public void AddShape(ShapeJson p)
       {
             shapes.Add(p);

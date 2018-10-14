@@ -8,6 +8,7 @@ public class SpellJson{
 
       [NonSerialized]
 	public List<PhaseJson> phases = new List<PhaseJson>();
+      
       public PhaseJson[] phasesArray;
 	public void AddPhase(PhaseJson p)
 	{

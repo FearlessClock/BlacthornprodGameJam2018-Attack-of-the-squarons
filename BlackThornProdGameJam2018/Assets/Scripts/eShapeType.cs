@@ -1,1 +1,1 @@
-public enum ShapeType { Circle, Line };
+public enum ShapeType { Circle, Triangle, Square };

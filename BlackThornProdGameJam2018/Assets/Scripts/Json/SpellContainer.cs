@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 using System; 
+using TMPro;
 public class HandleTextFile
 {
     public static void WriteString(string path, string text)
@@ -30,6 +32,9 @@ public class SpellContainer: MonoBehaviour {
       public string spellBookLocation;
 
       SpellJson spell;
+
+      public TextMeshProUGUI code;
+      public SpellInterpreter spellInterpreter;
 
       public GameObject spellGenerator;
 
@@ -81,6 +86,11 @@ public class SpellContainer: MonoBehaviour {
             // HandleTextFile.WriteString(spellBookLocation, newjson);
       }
 
+      public void ReadCode(){
+            SpellJson spell = spellInterpreter.InterpretScript(code.text);
+            Debug.Log(JsonUtility.ToJson(spell, true));
+            HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(spell, true));
+    }
 	void Update(){
 
 	}
