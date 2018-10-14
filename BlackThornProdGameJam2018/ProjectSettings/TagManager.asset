@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spell
+  - SpellShape
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 3130478429
+    locked: 0
+  - name: Monsters
+    uniqueID: 2778872321
     locked: 0
   - name: Player
     uniqueID: 1158091911

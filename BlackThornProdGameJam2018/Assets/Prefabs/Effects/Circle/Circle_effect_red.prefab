@@ -71,9 +71,10 @@ GameObject:
   - component: {fileID: 4956470327844368}
   - component: {fileID: 95360772307706296}
   - component: {fileID: 114698359373712798}
+  - component: {fileID: 58998444178386850}
   m_Layer: 0
   m_Name: Circle_effect_red
-  m_TagString: Untagged
+  m_TagString: SpellShape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986872649067178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.605, y: -0.88, z: -2.2376237}
+  m_LocalPosition: {x: -2.1915221, y: 4.192431, z: -2.2376237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4092253632501906}
@@ -133,6 +134,21 @@ Transform:
   m_Father: {fileID: 4956470327844368}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!58 &58998444178386850
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986872649067178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0025900602}
+  serializedVersion: 2
+  m_Radius: 1.4069973
 --- !u!95 &95360772307706296
 Animator:
   serializedVersion: 3
@@ -170,6 +186,7 @@ MonoBehaviour:
     manaCost: 0
     type: 
     elementalType: 
+    damage: 0
   duration: 0
   elementalType: 0
 --- !u!198 &198200728490365632
