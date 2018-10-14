@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 1ec42fc9c702eac409f129b1cd062de0
+guid: a218569d5f3766749b9289200cbd8764
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BlackThornProdGameJam_Monster_1_0
-    21300002: BlackThornProdGameJam_Monster_1_1
-    21300004: BlackThornProdGameJam_Monster_1_2
-    21300006: BlackThornProdGameJam_Monster_1_3
-    21300008: BlackThornProdGameJam_Monster_1_4
+    21300000: Player character_2
+    21300002: Player character_3
+    21300004: Player character_4
+    21300006: Player character_5
+    21300008: Player character_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -100,101 +100,101 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BlackThornProdGameJam_Monster_1_0
+      name: Player character_2
       rect:
         serializedVersion: 2
-        x: 27
-        y: 48
-        width: 564
-        height: 503
+        x: 19
+        y: 100
+        width: 397
+        height: 313
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddcdc833ab758bd4a947607cd304b77e
+      spriteID: 666007eee0352964f9938f985b6bdec9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackThornProdGameJam_Monster_1_1
+      name: Player character_3
       rect:
         serializedVersion: 2
-        x: 641
-        y: 319
-        width: 174
-        height: 184
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 443
+        y: 138
+        width: 37
+        height: 229
+      alignment: 9
+      pivot: {x: 0.98339677, y: 0.9982456}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e879e3c5b9ee284d9fa00591c586415
+      spriteID: 9d6f461a370866a4ba315620755e6e5e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackThornProdGameJam_Monster_1_2
+      name: Player character_4
       rect:
         serializedVersion: 2
-        x: 906
-        y: 313
-        width: 179
-        height: 185
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 516
+        y: 141
+        width: 60
+        height: 226
+      alignment: 9
+      pivot: {x: 0.9522817, y: 0.9912146}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0afeb715dbeaa054ab32b06341831bc1
+      spriteID: 0ec184cb6866c6c4da06ae481de1fd84
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackThornProdGameJam_Monster_1_3
+      name: Player character_5
       rect:
         serializedVersion: 2
-        x: 649
-        y: 58
-        width: 108
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 613
+        y: 279
+        width: 101
+        height: 113
+      alignment: 9
+      pivot: {x: 0.042019382, y: 0.05790697}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 550d15b353b2d6641808057b7a7ae67c
+      spriteID: 826fa81dc0e6625448150ce6c9c5ac81
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlackThornProdGameJam_Monster_1_4
+      name: Player character_6
       rect:
         serializedVersion: 2
-        x: 869
-        y: 64
-        width: 113
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 607
+        y: 89
+        width: 79
+        height: 136
+      alignment: 9
+      pivot: {x: 0.96841544, y: 0.9172112}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf4dae79a26e9cd44a24aaac9f080184
+      spriteID: b1e6b7043fa590046a894380e95e11c2
       vertices: []
       indices: 
       edges: []
@@ -202,7 +202,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 98b0284d051ad044bbc1d7459b0dbeb1
+    spriteID: 058893cae3127a84ebf51439426c7d57
     vertices: []
     indices: 
     edges: []
