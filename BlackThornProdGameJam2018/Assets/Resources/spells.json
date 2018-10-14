@@ -1,1 +1,49 @@
-{"phasesArray":[{"shapesArray":[{"posX":0,"posY":0,"duration":1.0,"size":1,"manaCost":2,"type":"circle","elementalType":"fire","damage":1.0}],"phaseDuration":3.0},{"shapesArray":[{"posX":0,"posY":2,"duration":2.0,"size":3,"manaCost":2,"type":"triangle","elementalType":"ice","damage":4.0}],"phaseDuration":0.0}]}
+{
+    "phasesArray": [
+        {
+            "shapesArray": [
+                {
+                    "posX": 1,
+                    "posY": 2,
+                    "duration": 2.0,
+                    "size": 1,
+                    "manaCost": 2,
+                    "type": "circle",
+                    "elementalType": "fire",
+                    "damage": 2.0
+                }
+            ],
+            "phaseDuration": 1.0
+        },
+        {
+            "shapesArray": [
+                {
+                    "posX": -1,
+                    "posY": 2,
+                    "duration": 2.0,
+                    "size": 2,
+                    "manaCost": 2,
+                    "type": "triangle",
+                    "elementalType": "ice",
+                    "damage": 2.0
+                }
+            ],
+            "phaseDuration": 1.0
+        },
+        {
+            "shapesArray": [
+                {
+                    "posX": 0,
+                    "posY": -2,
+                    "duration": 2.0,
+                    "size": 1,
+                    "manaCost": 2,
+                    "type": "square",
+                    "elementalType": "water",
+                    "damage": 2.0
+                }
+            ],
+            "phaseDuration": 0.0
+        }
+    ]
+}

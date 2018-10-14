@@ -74,7 +74,7 @@ public class SpellContainer: MonoBehaviour {
 
     public void saveCode()
     {
-        HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(currentSpellJson));
+        HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(currentSpellJson, true));
     }
 	void Update(){
 
