@@ -31,12 +31,12 @@ public class SpellContainer: MonoBehaviour {
 
     public string spellBookLocation;
 
-    SpellJson spell;
+    SpellJson spellSettings;
 
     public TextMeshProUGUI code;
     public SpellInterpreter spellInterpreter;
 
-    public GameObject spellGenerator;
+    public GameObject spellGenerator; 
 
     public PlayerController player;
 
@@ -45,19 +45,15 @@ public class SpellContainer: MonoBehaviour {
     SpellGenerator currentSpell;
     SpellJson currentSpellJson;
 
-      private void Start() {
-            string spellsText = HandleTextFile.ReadString(spellBookLocation);
-            spell = JsonUtility.FromJson<SpellJson>(spellsText);
+    private void Start() {
+        string spellsText = HandleTextFile.ReadString(spellBookLocation);
+        spellSettings = JsonUtility.FromJson<SpellJson>(spellsText);
 
-            Debug.Log(spell.phasesArray.Length);
-            GameObject spellObj = Instantiate<GameObject>(spellGenerator);
-            SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
-            spellScript.spellSettings = spell;
-
-            if(player != null){
-                  player.spell = spellScript;
-            }
-      }
+        if (player != null){
+            player.spellGenerator = spellGenerator;
+            player.spellSettings = spellSettings;
+        }
+    }
 
     public void ReadCode(){
         foreach(Transform t in spellParent)

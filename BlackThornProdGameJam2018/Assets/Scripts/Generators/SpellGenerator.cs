@@ -10,8 +10,36 @@ public class SpellGenerator : MonoBehaviour
 
     public Vector3 spellLocation;
 
+    private float timeBTWChecks = 0.2f;
+
     private void Start()
     {
+    }
+
+    private void Update()
+    {
+        if(timeBTWChecks <= 0)
+        {
+            if (transform.childCount == 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.childCount == 0)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }
+            timeBTWChecks = 0.2f;
+        }
+        else
+        {
+            timeBTWChecks -= Time.deltaTime;
+        }
     }
 
     public void GenerateSpell(Vector3 spellLoc)

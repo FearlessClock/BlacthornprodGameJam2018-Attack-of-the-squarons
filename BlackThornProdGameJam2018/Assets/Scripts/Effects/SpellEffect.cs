@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpellEffect : MonoBehaviour {
+public abstract class SpellEffect {
 
     public GameObject monster;
     public ElementalType spellType;
