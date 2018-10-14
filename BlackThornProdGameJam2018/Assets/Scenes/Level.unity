@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.35872743, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,7 +233,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4956470327844368, guid: d6b6dc80637b6234ab06264b06eb0d7a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6b6dc80637b6234ab06264b06eb0d7a, type: 2}
@@ -313,6 +313,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &466590878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1986872649067178, guid: d6b6dc80637b6234ab06264b06eb0d7a,
+    type: 2}
+  m_PrefabInternal: {fileID: 158288374}
+--- !u!58 &466590882
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 466590878}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.33
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +484,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4867207336903964, guid: b8d0ec0ed1382194eb61982f1f74c650, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d0ec0ed1382194eb61982f1f74c650, type: 2}
@@ -656,7 +676,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4943034305119996, guid: 11185df6a1414ee47a0e1207e9df0ccb, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1627850023802128, guid: 11185df6a1414ee47a0e1207e9df0ccb, type: 2}
       propertyPath: m_Name
@@ -745,6 +765,7 @@ GameObject:
   - component: {fileID: 1392509570}
   - component: {fileID: 1392509569}
   - component: {fileID: 1392509568}
+  - component: {fileID: 1392509571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -782,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  spell: {fileID: 0}
 --- !u!4 &1392509570
 Transform:
   m_ObjectHideFlags: 0
@@ -801,6 +823,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1392509571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1392509567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500175d33238954b9a07bf5cf436f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellBookLocation: Assets/Resources/spells.json
+  spellGenerator: {fileID: 1049066817550036, guid: db09fb52b734e5f4f872e56cccb6aac0,
+    type: 2}
+  player: {fileID: 1392509569}
 --- !u!1 &1408599512
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +889,7 @@ SpriteRenderer:
   m_SortingLayerID: 1109483061
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93e0ca4559349fc4b8b5110210abba6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3dc33904c74490e4b82231bd61bc66b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
