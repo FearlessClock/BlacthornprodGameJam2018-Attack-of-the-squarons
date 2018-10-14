@@ -24,44 +24,25 @@ public class HandleTextFile
 
 }
 
-[Serializable]
-public class SpellJson{
 
-      [NonSerialized]
-	public List<PhaseJson> phases = new List<PhaseJson>();
-      public PhaseJson[] phasesArray;
-	public void AddPhase(PhaseJson p)
-	{
-		phases.Add(p);
-	}
-
-      public void finishPhaseAdding(){
-            phasesArray = phases.ToArray();
-      }
-
-	public override string ToString()
-	{
-		string res = "";
-		foreach(PhaseJson p in phases)
-		{
-			res += p.ToString();
-
-		}
-		return res;
-	}
-}
 public class SpellContainer: MonoBehaviour {
 
       public string spellBookLocation;
 
       SpellJson spell;
 
+      public GameObject spellGenerator;
+
       private void Start() {
             string spellsText = HandleTextFile.ReadString(spellBookLocation);
             spell = JsonUtility.FromJson<SpellJson>(spellsText);
 
             Debug.Log(spell.phasesArray.Length);
-            
+            GameObject spellObj = Instantiate<GameObject>(spellGenerator);
+            SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
+            spellScript.spellSettings = spell;
+            spellScript.GenerateSpell();
+
             // spell = new Spell();
             // spell.AddPhase(new Phase());
             // spell.phases[0].AddShape(new Shape());

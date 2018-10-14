@@ -16,7 +16,6 @@ public class PhaseJson {
 
       public void FinishShapeAdding(){
             shapesArray = shapes.ToArray();
-            Debug.Log(shapesArray[0].posX);
       }
 
       public override string ToString()
