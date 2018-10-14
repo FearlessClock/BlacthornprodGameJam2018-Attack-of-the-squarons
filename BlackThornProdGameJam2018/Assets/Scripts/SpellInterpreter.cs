@@ -86,10 +86,10 @@ public class SpellInterpreter : MonoBehaviour {
                     shape = AddCircle(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]));
                     break;
                 case ShapeType.Triangle:
-                    shape = AddSquare(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]));
+                    shape = AddTriangle(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]));
                     break;
                 case ShapeType.Square:
-                    shape = AddTriangle(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]));
+                    shape = AddSquare(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]));
                     break;
                 default:
                     shape = null;   

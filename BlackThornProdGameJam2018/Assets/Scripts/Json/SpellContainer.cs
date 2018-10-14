@@ -29,16 +29,21 @@ public class HandleTextFile
 
 public class SpellContainer: MonoBehaviour {
 
-      public string spellBookLocation;
+    public string spellBookLocation;
 
-      SpellJson spell;
+    SpellJson spell;
 
-      public TextMeshProUGUI code;
-      public SpellInterpreter spellInterpreter;
+    public TextMeshProUGUI code;
+    public SpellInterpreter spellInterpreter;
 
-      public GameObject spellGenerator;
+    public GameObject spellGenerator;
 
-      public PlayerController player;
+    public PlayerController player;
+
+    public Transform spellParent;
+
+    SpellGenerator currentSpell;
+    SpellJson currentSpellJson;
 
       private void Start() {
             string spellsText = HandleTextFile.ReadString(spellBookLocation);
@@ -52,44 +57,28 @@ public class SpellContainer: MonoBehaviour {
             if(player != null){
                   player.spell = spellScript;
             }
-
-            // spell = new Spell();
-            // spell.AddPhase(new Phase());
-            // spell.phases[0].AddShape(new Shape());
-            // spell.phases[0].shapes[0].posX = 43;
-            // spell.phases[0].shapes[0].posY = 43;
-            // spell.phases[0].shapes[0].size = new Vector2(3, 2);
-            // spell.phases[0].shapes[0].type = "Circle".ToLower();
-            // spell.phases[0].shapes[0].duration = 3;
-            // spell.phases[0].shapes[0].elementalType = "Fire".ToLower();
-            // spell.phases[0].AddShape(new Shape());
-            // spell.phases[0].shapes[1].posX = 43;
-            // spell.phases[0].shapes[1].posY = 43;
-            // spell.phases[0].shapes[1].size = new Vector2(3, 2);
-            // spell.phases[0].shapes[1].type = "Circle".ToLower();
-            // spell.phases[0].shapes[1].duration = 3;
-            // spell.phases[0].shapes[1].elementalType = "Fire".ToLower();
-            // spell.phases[0].FinishShapeAdding();
-            // spell.AddPhase(new Phase());
-            // spell.phases[1].AddShape(new Shape());
-            // spell.phases[1].shapes[0].posX = 43;
-            // spell.phases[1].shapes[0].posY = 43;
-            // spell.phases[1].shapes[0].size = new Vector2(3, 2);
-            // spell.phases[1].shapes[0].type = "Circle".ToLower();
-            // spell.phases[1].shapes[0].duration = 3;
-            // spell.phases[1].shapes[0].elementalType = "Fire".ToLower();
-            // spell.phases[1].FinishShapeAdding();
-            // spell.finishPhaseAdding();
-
-            // string newjson = JsonUtility.ToJson(spell);
-            // Debug.Log(newjson);
-            // HandleTextFile.WriteString(spellBookLocation, newjson);
       }
 
-      public void ReadCode(){
-            SpellJson spell = spellInterpreter.InterpretScript(code.text);
-            Debug.Log(JsonUtility.ToJson(spell, true));
-            HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(spell, true));
+    public void ReadCode(){
+        foreach(Transform t in spellParent)
+        {
+            Destroy(t.gameObject, 0.1f);
+        }
+        //Interpret the code written by the player
+        currentSpellJson = spellInterpreter.InterpretScript(code.text); 
+        Debug.Log(JsonUtility.ToJson(currentSpellJson, true));
+        //Turn the json into an actaul spell
+        GameObject spellObj = Instantiate<GameObject>(spellGenerator);
+        spellObj.transform.parent = spellParent;
+        currentSpell = spellObj.GetComponent<SpellGenerator>();
+        currentSpell.spellSettings = currentSpellJson;
+        currentSpell.GenerateSpell(Vector3.zero);
+        //HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(spell, true));
+    }
+
+    public void saveCode()
+    {
+        HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(currentSpellJson));
     }
 	void Update(){
 
