@@ -8,6 +8,8 @@ public class MonsterController : MonoBehaviour {
     public float maxHp;
     private float currentHp;
 
+    private Rigidbody2D rigBody;
+
     private  List<SpellEffect> spellEffects;
 
     private GameObject healthBar;
@@ -19,6 +21,8 @@ public class MonsterController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        rigBody = gameObject.GetComponent<Rigidbody2D>();
+
         timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
         spellEffects = new List<SpellEffect>();
         healthBar = transform.GetChild(1).GetChild(0).gameObject;
@@ -54,7 +58,7 @@ public class MonsterController : MonoBehaviour {
         if(currentHp <= 0)
         {
             currentHp = 0;
-            // DESTROY MONSTER //////////////////////
+            Kill();
         }
 
         Vector3 temp = healthBar.transform.localScale;
@@ -68,13 +72,13 @@ public class MonsterController : MonoBehaviour {
         switch (type)
         {
             case ElementalType.normal: // CHANGE TO NORMAL EFFECT
-                FireEffect norEffect = new FireEffect();
+                NormalEffect norEffect = new NormalEffect();
 
-                norEffect.spellType = ElementalType.fire;
+                norEffect.spellType = ElementalType.normal;
                 norEffect.shapeId = shapeId;
                 norEffect.monster = gameObject;
 
-                norEffect.InitEffect(10, 1, 5, 1, 10);
+                norEffect.InitEffect(10f, 1f);
 
                 spellEffects.Add(norEffect);
                 break;
@@ -85,19 +89,30 @@ public class MonsterController : MonoBehaviour {
                 fireEffect.shapeId = shapeId;
                 fireEffect.monster = gameObject;
 
-                fireEffect.InitEffect(10, 1, 5, 1, 10);
+                fireEffect.InitEffect(10f, 1f, 5f, 1f, 10f);
 
                 spellEffects.Add(fireEffect);
                 break;
             case ElementalType.water:
                 break;
             case ElementalType.ice:
+                IceEffect iceEffect = new IceEffect();
+
+                iceEffect.spellType = ElementalType.normal;
+                iceEffect.shapeId = shapeId;
+                iceEffect.monster = gameObject;
+
+                iceEffect.InitEffect(10f, 1f, 0.5f, 5f);
+
+                spellEffects.Add(iceEffect);
                 break;
-            case ElementalType.ground:
+            case ElementalType.earth:
                 break;
             case ElementalType.death:
                 break;
             case ElementalType.poison:
+                break;
+            case ElementalType.lightning:
                 break;
             default:
                 break;
@@ -190,5 +205,15 @@ public class MonsterController : MonoBehaviour {
                 EffectLeaveShapeArea(collision.gameObject.GetInstanceID());
                 break;
         }
+    }
+
+    public void Kill()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("kill");
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
