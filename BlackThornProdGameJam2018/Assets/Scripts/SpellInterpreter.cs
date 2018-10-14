@@ -77,67 +77,59 @@ public class SpellInterpreter : MonoBehaviour {
     }
 
     ShapeJson CreateShape(ShapeType shapeType, string[] funcParams)
+    {
+        ShapeJson shape;
+        string type = "";
+        switch (shapeType)
         {
-            ShapeJson shape;
-            switch (shapeType)
-            {
-                case ShapeType.Circle:
-                    //Check if there are enough params
-                    shape = AddCircle(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]));
-                    break;
-                case ShapeType.Triangle:
-                    shape = AddTriangle(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]));
-                    break;
-                case ShapeType.Square:
-                    shape = AddSquare(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]));
-                    break;
-                default:
-                    shape = null;   
-                    break;
-            }
-
-            return shape;
+            case ShapeType.Circle:
+                //Check if there are enough params
+                if(funcParams.Length == 6)
+                {
+                    type = "circle";
+                }
+                break;
+            case ShapeType.Triangle:
+                if (funcParams.Length == 6)
+                {
+                    type = "triangle";
+                }
+                break;
+            case ShapeType.Square:
+                if (funcParams.Length == 6)
+                {
+                    type = "square";
+                }
+                break;
+            default:
+                shape = null;   
+                break;
         }
+        if (funcParams.Length == 6)
+        {
+            shape = AddShape(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]), Convert.ToInt32(funcParams[4]), funcParams[5], type);
+        }
+        else
+        {
+            shape = null;
+            Debug.Log("There are only 6 parameters");
+        }
+        return shape;
+    }
 
-    ShapeJson AddCircle(int x, int y, int rad)
+    //x, y, damage, duration, size, damageType
+    ShapeJson AddShape(int x, int y, int damage, int duration, int size, string damageType, string type)
     {
         ShapeJson shapeJson = new ShapeJson();
         shapeJson.posX = x;
         shapeJson.posY = y;
-        shapeJson.damage = 1;
-        shapeJson.size = Vector2.one * rad;
-        shapeJson.duration = 3;
-        shapeJson.elementalType = "fire";
+        shapeJson.damage = damage;
+        shapeJson.size = size;
+        shapeJson.duration = duration;
+        shapeJson.elementalType = damageType;
+        //get an equation that will give us the manacost in function of the damage, position, size and duration
         shapeJson.manaCost = 2;
-        shapeJson.type = "circle";
-        return shapeJson;
-    }
-
-    ShapeJson AddTriangle(int x1, int y1, int x2, int y2)
-    {
-        ShapeJson shapeJson = new ShapeJson();
-        shapeJson.posX = x1;
-        shapeJson.posY = y1;
-        shapeJson.damage = 1;
-        shapeJson.size = Vector2.one * x2;
-        shapeJson.duration = 3;
-        shapeJson.elementalType = "ice";
-        shapeJson.manaCost = y2;
-        shapeJson.type = "triangle";
-        return shapeJson;
-    }
-
-    ShapeJson AddSquare(int x1, int y1, int x2, int y2)
-    {
-        ShapeJson shapeJson = new ShapeJson();
-        shapeJson.posX = x1;
-        shapeJson.posY = y1;
-        shapeJson.damage = 1;
-        shapeJson.size = Vector2.one * x2;
-        shapeJson.duration = 3;
-        shapeJson.elementalType = "water";
-        shapeJson.manaCost = y2;
-        shapeJson.type = "square";
+        shapeJson.type = type;
         return shapeJson;
     }
 }

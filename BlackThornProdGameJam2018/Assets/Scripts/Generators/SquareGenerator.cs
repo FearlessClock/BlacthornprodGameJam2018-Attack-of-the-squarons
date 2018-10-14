@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SquareGenerator : ShapeAbstractGenerator
 {
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public override void GenerateShape(Vector3 spellLocation)
     {
         this.transform.position = new Vector3(shapeSettings.posX, shapeSettings.posY, 0) + spellLocation;
+        this.transform.localScale = Vector3.one * shapeSettings.size;
         switch (shapeSettings.elementalType)
         {
             case "fire":
@@ -19,15 +24,11 @@ public class SquareGenerator : ShapeAbstractGenerator
                 elementalType = ElementalType.normal;
                 break;
         }
+        Invoke("destroyWithAnimator", shapeSettings.duration);
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void destroyWithAnimator()
+    {
+        animator.SetTrigger("destroy");
+    }
 }

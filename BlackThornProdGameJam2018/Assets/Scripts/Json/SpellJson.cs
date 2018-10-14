@@ -6,18 +6,18 @@ using System;
 [Serializable]
 public class SpellJson{
 
-      [NonSerialized]
+    [NonSerialized]
 	public List<PhaseJson> phases = new List<PhaseJson>();
       
-      public PhaseJson[] phasesArray;
+    public PhaseJson[] phasesArray;
 	public void AddPhase(PhaseJson p)
 	{
 		phases.Add(p);
 	}
 
-      public void finishPhaseAdding(){
-            phasesArray = phases.ToArray();
-      }
+    public void finishPhaseAdding(){
+        phasesArray = phases.ToArray();
+    }
 
 	public override string ToString()
 	{

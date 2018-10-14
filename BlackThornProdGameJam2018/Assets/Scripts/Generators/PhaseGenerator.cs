@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PhaseGenerator : MonoBehaviour {
@@ -7,12 +9,24 @@ public class PhaseGenerator : MonoBehaviour {
     public GameObject squarePrefab;
     public GameObject trianglePrefab;
 
+    public float time;
+
+    public Vector3 spellLocation;
+
+
     private void Start() {
             
       }
 
-    public void GenerateShapes(Vector3 spellLocation){
-        for(int i = 0; i < phaseSettings.shapesArray.Length; i++){
+    public void GenerateShapes(Vector3 spellLoc){
+        spellLocation = spellLoc;
+        StartCoroutine(CoroutineGenerateShape());
+    }
+
+    IEnumerator CoroutineGenerateShape()
+    {
+        for (int i = 0; i < phaseSettings.shapesArray.Length; i++)
+        {
             GameObject shape = null;
             ShapeAbstractGenerator shapeScript = null;
             switch (phaseSettings.shapesArray[i].type)
@@ -31,6 +45,7 @@ public class PhaseGenerator : MonoBehaviour {
             shapeScript = shape.GetComponent<ShapeAbstractGenerator>();
             shapeScript.shapeSettings = phaseSettings.shapesArray[i];
             shapeScript.GenerateShape(spellLocation);
+            yield return new WaitForEndOfFrame();
         }
     }
 }

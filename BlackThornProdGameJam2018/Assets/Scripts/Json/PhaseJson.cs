@@ -6,29 +6,29 @@ using System;
 [Serializable]
 public class PhaseJson {
 
-      public ShapeJson[] shapesArray ;
-      [NonSerialized]
+    public ShapeJson[] shapesArray ;
+    [NonSerialized]
 	public List<ShapeJson> shapes = new List<ShapeJson>();
-      public float phaseDuration;
-      public void AddShape(ShapeJson p)
-      {
-            shapes.Add(p);
-      }
+    public float phaseDuration;
+    public void AddShape(ShapeJson p)
+    {
+        shapes.Add(p);
+    }
 
-      public void FinishShapeAdding(){
-            shapesArray = shapes.ToArray();
-      }
+    public void FinishShapeAdding(){
+        shapesArray = shapes.ToArray();
+    }
 
-      public override string ToString()
-      {
-      string res = "";
+    public override string ToString()
+    {
+        string res = "";
 
-      foreach(ShapeJson s in shapes)
-      {
+        foreach(ShapeJson s in shapes)
+        {
             res += s.ToString();
             res += " \n";
-      }
+        }
 
-      return res;
-      }
+        return res;
+    }
 }

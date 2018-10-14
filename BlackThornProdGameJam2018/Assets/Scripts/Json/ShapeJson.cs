@@ -11,7 +11,7 @@ public class ShapeJson {
 
     public float duration;
 
-    public Vector2 size;
+    public int size;
 
     public int manaCost;
 
