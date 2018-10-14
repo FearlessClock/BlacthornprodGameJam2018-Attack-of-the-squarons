@@ -8,8 +8,6 @@ public class MonsterController : MonoBehaviour {
     public float maxHp;
     private float currentHp;
 
-    private Rigidbody2D rigBody;
-
     private  List<SpellEffect> spellEffects;
 
     private GameObject healthBar;
@@ -21,8 +19,6 @@ public class MonsterController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rigBody = gameObject.GetComponent<Rigidbody2D>();
-
         timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
         spellEffects = new List<SpellEffect>();
         healthBar = transform.GetChild(1).GetChild(0).gameObject;
