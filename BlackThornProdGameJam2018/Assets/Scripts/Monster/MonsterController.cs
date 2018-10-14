@@ -177,8 +177,14 @@ public class MonsterController : MonoBehaviour {
     {
         switch(collision.tag)
         {
-            case "SpellShape":
+            case "CircleSpell":
                 AddEffect(collision.gameObject.GetComponent<CircleGenerator>().elementalType, collision.gameObject.GetInstanceID());
+                break;
+            case "SquareSpell":
+                AddEffect(collision.gameObject.GetComponent<SquareGenerator>().elementalType, collision.gameObject.GetInstanceID());
+                break;
+            case "TriangleSpell":
+                AddEffect(collision.gameObject.GetComponent<TriangleGenerator>().elementalType, collision.gameObject.GetInstanceID());
                 break;
         }
     }

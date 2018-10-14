@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58551054385573452}
   m_Layer: 9
   m_Name: Circle_effect_red
-  m_TagString: SpellShape
+  m_TagString: CircleSpell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243827408649612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1587011, y: 1.4041944, z: -2.2376237}
+  m_LocalPosition: {x: 2.8614967, y: 2.1664784, z: -2.2376237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4021797755615422}
@@ -309,7 +309,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2

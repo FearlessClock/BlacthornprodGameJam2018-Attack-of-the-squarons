@@ -56,7 +56,7 @@ MonoBehaviour:
     phaseDuration: 0
   circlePrefab: {fileID: 1243827408649612, guid: d6b6dc80637b6234ab06264b06eb0d7a,
     type: 2}
-  squarePrefab: {fileID: 1809490944623188, guid: 51cdba3644b146f428bf058eee24d01c,
+  squarePrefab: {fileID: 1694258305093116, guid: 7a156a7787192144fb0034e87d288cd3,
     type: 2}
   trianglePrefab: {fileID: 1724310157791170, guid: 11185df6a1414ee47a0e1207e9df0ccb,
     type: 2}
