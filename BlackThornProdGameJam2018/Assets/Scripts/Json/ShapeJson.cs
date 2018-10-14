@@ -18,4 +18,6 @@ public class ShapeJson {
 	public string type;
 
       public string elementalType;
+
+      public float damage;
 }

@@ -33,6 +33,8 @@ public class SpellContainer: MonoBehaviour {
 
       public GameObject spellGenerator;
 
+      public PlayerController player;
+
       private void Start() {
             string spellsText = HandleTextFile.ReadString(spellBookLocation);
             spell = JsonUtility.FromJson<SpellJson>(spellsText);
@@ -41,7 +43,10 @@ public class SpellContainer: MonoBehaviour {
             GameObject spellObj = Instantiate<GameObject>(spellGenerator);
             SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
             spellScript.spellSettings = spell;
-            spellScript.GenerateSpell();
+
+            if(player != null){
+                  player.spell = spellScript;
+            }
 
             // spell = new Spell();
             // spell.AddPhase(new Phase());

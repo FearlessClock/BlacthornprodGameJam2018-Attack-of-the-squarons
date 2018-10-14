@@ -10,7 +10,7 @@ public class PhaseGenerator : MonoBehaviour {
             
       }
 
-      public void GenerateShapes(){
+      public void GenerateShapes(Vector3 spellLocation){
             for(int i = 0; i < phaseSettings.shapesArray.Length; i++){
                   GameObject shape;
                   ShapeAbstractGenerator shapeScript = null;
@@ -29,7 +29,7 @@ public class PhaseGenerator : MonoBehaviour {
                   }
                   if(shapeScript != null){
                         shapeScript.shapeSettings = phaseSettings.shapesArray[i];
-                        shapeScript.GenerateShape();
+                        shapeScript.GenerateShape(spellLocation);
                   }
             }
       }

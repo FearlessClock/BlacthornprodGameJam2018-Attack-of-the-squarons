@@ -6,8 +6,8 @@ public class CircleGenerator : ShapeAbstractGenerator {
             
       }
 
-      public override void GenerateShape(){
-            this.transform.position =new Vector3(shapeSettings.posX, shapeSettings.posY, 0);
+      public override void GenerateShape(Vector3 spellLocation){
+            this.transform.position = new Vector3(shapeSettings.posX, shapeSettings.posY, 0) + spellLocation;
             switch (shapeSettings.elementalType)
             {
                 case "fire":

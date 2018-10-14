@@ -70,6 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4956470327844368}
   - component: {fileID: 95360772307706296}
+  - component: {fileID: 114698359373712798}
   m_Layer: 0
   m_Name: Circle_effect_red
   m_TagString: Untagged
@@ -150,6 +151,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114698359373712798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986872649067178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35898f8763a045640b231776b2c8583d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeSettings:
+    posX: 0
+    posY: 0
+    duration: 0
+    size: {x: 0, y: 0}
+    manaCost: 0
+    type: 
+    elementalType: 
+  duration: 0
+  elementalType: 0
 --- !u!198 &198200728490365632
 ParticleSystem:
   m_ObjectHideFlags: 1

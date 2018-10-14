@@ -7,5 +7,5 @@ public abstract class ShapeAbstractGenerator : MonoBehaviour {
 
       public ElementalType elementalType;
 
-      public abstract void GenerateShape();
+      public abstract void GenerateShape(Vector3 spellLocation);
 }

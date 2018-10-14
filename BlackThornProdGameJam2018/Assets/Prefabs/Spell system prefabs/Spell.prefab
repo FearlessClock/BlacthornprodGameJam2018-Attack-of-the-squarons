@@ -53,4 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSettings:
     phasesArray: []
-  phase: {fileID: 0}
+  phase: {fileID: 1507662468031044, guid: 327938c4d590dce4eaba184c2b932747, type: 2}

@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4544952327840084}
+  - component: {fileID: 114315386952396754}
   m_Layer: 0
   m_Name: Phase
   m_TagString: Untagged
@@ -39,3 +40,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114315386952396754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507662468031044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d733c244fa43cd746a657471a40a262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phaseSettings:
+    shapesArray: []
+  circlePrefab: {fileID: 1986872649067178, guid: d6b6dc80637b6234ab06264b06eb0d7a,
+    type: 2}
+  linePrefab: {fileID: 1986872649067178, guid: d6b6dc80637b6234ab06264b06eb0d7a, type: 2}

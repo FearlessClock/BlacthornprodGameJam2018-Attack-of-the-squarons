@@ -4,9 +4,9 @@ public class LineGenerator : ShapeAbstractGenerator {
       private void Start() {
       }
 
-      public override void GenerateShape(){
+      public override void GenerateShape(Vector3 spellLocation){
             
-            this.transform.position =new Vector3(shapeSettings.posX, shapeSettings.posY, 0);
+            this.transform.position =new Vector3(shapeSettings.posX, shapeSettings.posY, 0) + spellLocation;
             switch (shapeSettings.elementalType)
             {
                 case "fire":
