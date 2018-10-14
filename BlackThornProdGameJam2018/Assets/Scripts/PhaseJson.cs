@@ -4,12 +4,12 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class Phase {
+public class PhaseJson {
 
-      public Shape[] shapesArray ;
+      public ShapeJson[] shapesArray ;
       [NonSerialized]
-	public List<Shape> shapes = new List<Shape>();
-      public void AddShape(Shape p)
+	public List<ShapeJson> shapes = new List<ShapeJson>();
+      public void AddShape(ShapeJson p)
       {
             shapes.Add(p);
       }
@@ -23,7 +23,7 @@ public class Phase {
       {
       string res = "";
 
-      foreach(Shape s in shapes)
+      foreach(ShapeJson s in shapes)
       {
             res += s.ToString();
             res += " \n";

@@ -31,11 +31,11 @@ public class SpellInterpreter : MonoBehaviour {
     public void InterpretScript(string code)
     {
         GameObject spellInstance = Instantiate(spell);
-        Spell spellScript = spellInstance.GetComponent<Spell>();
+        SpellJson spellScript = spellInstance.GetComponent<SpellJson>();
         
         string[] sepCode = null;
         sepCode = code.Split(';');
-        Phase currentPhase = new Phase();
+        PhaseJson currentPhase = new PhaseJson();
         for (int j = 0; j < sepCode.Length - 1; j++)  //-1 because the line after the ; is counted with
         {
             string tillParan = sepCode[j].Split('(')[0];
@@ -65,9 +65,9 @@ public class SpellInterpreter : MonoBehaviour {
         }
     }
 
-    Shape CreateShape(ShapeType shapeType, string[] funcParams)
+    ShapeJson CreateShape(ShapeType shapeType, string[] funcParams)
         {
-            Shape shape;
+            ShapeJson shape;
             switch (shapeType)
             {
                 case ShapeType.Circle:
@@ -85,13 +85,13 @@ public class SpellInterpreter : MonoBehaviour {
             return shape;
         }
 
-        Shape AddCircle(int x, int y, int rad)
+        ShapeJson AddCircle(int x, int y, int rad)
         {
-            return Instantiate<GameObject>(circleShape).GetComponent<Shape>();
+            return Instantiate<GameObject>(circleShape).GetComponent<ShapeJson>();
         }
 
-        Shape AddLine(int x1, int y1, int x2, int y2)
+        ShapeJson AddLine(int x1, int y1, int x2, int y2)
         {
-            return Instantiate<GameObject>(lineShape).GetComponent<Shape>();
+            return Instantiate<GameObject>(lineShape).GetComponent<ShapeJson>();
         }
 }
