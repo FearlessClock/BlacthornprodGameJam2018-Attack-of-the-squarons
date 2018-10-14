@@ -29,6 +29,7 @@ public class PhaseGenerator : MonoBehaviour {
         {
             GameObject shape = null;
             ShapeAbstractGenerator shapeScript = null;
+
             switch (phaseSettings.shapesArray[i].type)
             {
                 case "circle":
@@ -40,12 +41,24 @@ public class PhaseGenerator : MonoBehaviour {
                 case "triangle":
                     shape = Instantiate<GameObject>(trianglePrefab);
                     break;
+                default:
+                    Debug.Log(phaseSettings.shapesArray[i].type);
+                    shape = Instantiate<GameObject>(squarePrefab);
+                    break;
+
             }
             shape.transform.parent = this.transform;
             shapeScript = shape.GetComponent<ShapeAbstractGenerator>();
-            shapeScript.shapeSettings = phaseSettings.shapesArray[i];
-            shapeScript.GenerateShape(spellLocation);
-            yield return new WaitForEndOfFrame();
+            if(shapeScript != null)
+            {
+                shapeScript.shapeSettings = phaseSettings.shapesArray[i];
+                shapeScript.GenerateShape(spellLocation);
+                yield return new WaitForEndOfFrame();
+            }
+            else
+            {
+                print("Shape script is nuil");
+            }
         }
     }
 }
