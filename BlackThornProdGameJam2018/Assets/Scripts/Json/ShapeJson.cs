@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class Shape {
+public class ShapeJson {
 
 	public int posX;
 	public int posY;
