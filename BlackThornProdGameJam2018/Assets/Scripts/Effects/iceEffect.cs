@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalEffect : SpellEffect
-{
+public class IceEffect : SpellEffect {
+
     // Damage when staying in shape
     public float damInShape;
     public float damInShapeProcTime;
     private float damInShapeCurTime;
-    
-    public void InitEffect(float damInShape, float damInShapeProcTime)
+
+    // Slow 
+    public float slow;
+    public float slowOverTimeDuration;
+    private float slowOverTimeCurDuration;
+
+    public void InitEffect(float damInShape, float damInShapeProcTime, float slow, float slowOverTimeDuration)
     {
         this.damInShape = damInShape;
         this.damInShapeProcTime = damInShapeProcTime;
 
+        this.slow = slow;
+        this.slowOverTimeDuration = slowOverTimeDuration;
+
         damInShapeCurTime = damInShapeProcTime;
+        slowOverTimeCurDuration = slowOverTimeDuration;
     }
 
     public override void ApplyEffect()
@@ -26,15 +35,22 @@ public class NormalEffect : SpellEffect
             monster.GetComponent<MonsterController>().Damage(damInShape);
             damInShapeCurTime = damInShapeProcTime;
         }
+
+        // Slow
+        slowOverTimeCurDuration -= Time.deltaTime;
+        if (slowOverTimeCurDuration <= 0)
+        {
+            effectFinished = true;
+        }
     }
 
     public override void UpdateEffect()
     {
+        slowOverTimeCurDuration = slowOverTimeDuration;
     }
 
     public override void LeaveShapeArea()
     {
         damInShape = 0;
-        effectFinished = true;
     }
 }
