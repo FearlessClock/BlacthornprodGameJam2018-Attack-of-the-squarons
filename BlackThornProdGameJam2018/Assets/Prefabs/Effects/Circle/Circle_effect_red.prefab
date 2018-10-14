@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243827408649612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.114, y: 1.125, z: -2.2376237}
+  m_LocalPosition: {x: 1.1587011, y: 1.4041944, z: -2.2376237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4021797755615422}
@@ -212,12 +212,12 @@ MonoBehaviour:
     posX: 0
     posY: 0
     duration: 0
-    size: {x: 0, y: 0}
+    size: 0
     manaCost: 0
     type: 
     elementalType: 
     damage: 0
-  duration: 0
+  animator: {fileID: 0}
   elementalType: 0
 --- !u!114 &114878250455185950
 MonoBehaviour:

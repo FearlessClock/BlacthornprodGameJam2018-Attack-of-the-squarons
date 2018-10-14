@@ -3,7 +3,7 @@ using UnityEngine;
 public class CircleGenerator : ShapeAbstractGenerator {
       
     private void Start() {
-        animator = GetComponent<Animator>(); 
+        animator = transform.GetChild(0).GetComponent<Animator>(); 
     }
 
     public override void GenerateShape(Vector3 spellLocation){

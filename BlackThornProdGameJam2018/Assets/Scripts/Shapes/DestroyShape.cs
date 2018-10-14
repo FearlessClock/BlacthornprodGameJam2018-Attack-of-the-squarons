@@ -6,6 +6,6 @@ public class DestroyShape : MonoBehaviour {
 
     public void Destroy()
     {
-        Destroy(gameObject.transform.parent);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }
