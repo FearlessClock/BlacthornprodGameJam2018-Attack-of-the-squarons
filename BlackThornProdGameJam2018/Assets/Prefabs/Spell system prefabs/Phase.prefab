@@ -53,6 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phaseSettings:
     shapesArray: []
+    phaseDuration: 0
   circlePrefab: {fileID: 1986872649067178, guid: d6b6dc80637b6234ab06264b06eb0d7a,
     type: 2}
-  linePrefab: {fileID: 1986872649067178, guid: d6b6dc80637b6234ab06264b06eb0d7a, type: 2}
+  squarePrefab: {fileID: 1244999972217456, guid: b8d0ec0ed1382194eb61982f1f74c650,
+    type: 2}
+  trianglePrefab: {fileID: 1627850023802128, guid: 11185df6a1414ee47a0e1207e9df0ccb,
+    type: 2}

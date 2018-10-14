@@ -9,15 +9,15 @@ public class ShapeJson {
 	public int posX;
 	public int posY;
 
-      public float duration;
+    public float duration;
 
-      public Vector2 size;
+    public Vector2 size;
 
-      public int manaCost;
+    public int manaCost;
 
 	public string type;
 
-      public string elementalType;
+    public string elementalType;
 
-      public float damage;
+    public float damage;
 }

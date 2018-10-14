@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4867207336903964}
   - component: {fileID: 95884886770258278}
+  - component: {fileID: 114054167666261794}
   m_Layer: 0
   m_Name: Square_effect_red
   m_TagString: Untagged
@@ -150,6 +151,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114054167666261794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244999972217456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c722392fb9cdc4d998a6eaa51a7778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeSettings:
+    posX: 0
+    posY: 0
+    duration: 0
+    size: {x: 0, y: 0}
+    manaCost: 0
+    type: 
+    elementalType: 
+    damage: 0
+  elementalType: 0
 --- !u!198 &198009520016059034
 ParticleSystem:
   m_ObjectHideFlags: 1
