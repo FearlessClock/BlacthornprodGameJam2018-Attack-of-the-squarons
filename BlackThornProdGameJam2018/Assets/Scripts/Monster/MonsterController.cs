@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MonsterController : MonoBehaviour {
 
-    public float maxHp;
-    private float currentHp;
+public class MonsterController : Monster {
 
-    private  List<SpellEffect> spellEffects;
 
-    private GameObject healthBar;
-    private float initScaleX;
+    //Enemy AI stats
+    public float collisionCheckSize;
+    public LayerMask wallLayerMask;
+    public LayerMask playerLayerMask;
+
 
     // Update periodic effect damage
     private float timeBTWEffectUpdates;
@@ -19,49 +19,18 @@ public class MonsterController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        MonsterSetup();
         timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
-        spellEffects = new List<SpellEffect>();
-        healthBar = transform.GetChild(1).GetChild(0).gameObject;
         currentHp = maxHp;
-        initScaleX = healthBar.transform.localScale.x;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        // Apply effects
-        int i = 0;
-        while(i < spellEffects.Count)
-        {
-            SpellEffect effect = spellEffects[i];
-            effect.ApplyEffect();
-            if(effect.effectFinished == true)
-            {
-                spellEffects.RemoveAt(i);
-            }
-            else
-            {
-                i++;
-            }
-        }
-
+        ApplyEffects();
         timeBTWEffectUpdates -= Time.deltaTime; // Time to update over time effects
     }
 
-    public void Damage(float damage)
-    {
-        currentHp -= damage;
-        if(currentHp <= 0)
-        {
-            currentHp = 0;
-            Kill();
-        }
-
-        Vector3 temp = healthBar.transform.localScale;
-        temp.x = (currentHp / maxHp) * initScaleX;
-
-        healthBar.transform.localScale = temp;
-    }
 
     public void AddEffect(ElementalType type, int shapeId)
     {
@@ -207,11 +176,6 @@ public class MonsterController : MonoBehaviour {
                 EffectLeaveShapeArea(collision.gameObject.GetInstanceID());
                 break;
         }
-    }
-
-    public void Kill()
-    {
-        gameObject.GetComponent<Animator>().SetTrigger("kill");
     }
 
     public void Destroy()

@@ -8,7 +8,7 @@ public class SpellGenerator : MonoBehaviour
 
     public GameObject phase;
 
-    public Vector3 spellLocation;
+    public Transform spellLocation;
 
     private float timeBTWChecks = 0.2f;
 
@@ -42,9 +42,11 @@ public class SpellGenerator : MonoBehaviour
         }
     }
 
-    public void GenerateSpell(Vector3 spellLoc)
+    public void GenerateSpell(Transform spellLoc)
     {
         spellLocation = spellLoc;
+        this.transform.position = spellLoc.position;
+        this.transform.rotation = spellLoc.rotation;
         StartCoroutine(CoroutineGenerateShape());
     }
 
@@ -56,7 +58,9 @@ public class SpellGenerator : MonoBehaviour
             phaseObj.transform.parent = this.transform;
             PhaseGenerator phaseScript = phaseObj.GetComponent<PhaseGenerator>();
             phaseScript.phaseSettings = spellSettings.phasesArray[i];
-            phaseScript.GenerateShapes(spellLocation);
+            phaseScript.GenerateShapes(this.transform);
+            phaseObj.transform.rotation = Quaternion.identity;
+
             yield return new WaitForSeconds(spellSettings.phasesArray[i].phaseDuration);
         }
     }

@@ -10,6 +10,7 @@ TagManager:
   - TriangleSpell
   - SpellShape
   - Background
+  - HealthBar
   layers:
   - Default
   - TransparentFX
@@ -22,6 +23,9 @@ TagManager:
   - PostProcessing
   - Effects
   - Background
+  - Solid
+  - Player
+  - 
   - 
   - 
   - 
