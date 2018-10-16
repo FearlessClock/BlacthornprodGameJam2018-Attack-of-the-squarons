@@ -36,9 +36,7 @@ public class SpellContainer: MonoBehaviour {
     public TextMeshProUGUI code;
     public SpellInterpreter spellInterpreter;
 
-    public GameObject spellGenerator; 
-
-    public PlayerController player;
+    public Creature creature;
 
     public Transform spellParent;
 
@@ -49,9 +47,8 @@ public class SpellContainer: MonoBehaviour {
         string spellsText = HandleTextFile.ReadString(spellBookLocation);
         spellSettings = JsonUtility.FromJson<SpellJson>(spellsText);
 
-        if (player != null){
-            player.spellGenerator = spellGenerator;
-            player.spellSettings = spellSettings;
+        if (creature != null){
+            creature.spellSettings = spellSettings;
         }
     }
 
@@ -64,11 +61,11 @@ public class SpellContainer: MonoBehaviour {
         currentSpellJson = spellInterpreter.InterpretScript(code.text); 
         Debug.Log(JsonUtility.ToJson(currentSpellJson, true));
         //Turn the json into an actaul spell
-        GameObject spellObj = Instantiate<GameObject>(spellGenerator);
+        GameObject spellObj = Instantiate<GameObject>(creature.spellGenerator);
         spellObj.transform.parent = spellParent;
         currentSpell = spellObj.GetComponent<SpellGenerator>();
         currentSpell.spellSettings = currentSpellJson;
-        currentSpell.GenerateSpell(Vector3.zero);
+        currentSpell.GenerateSpell(spellObj.transform);
         //HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(spell, true));
     }
 
@@ -77,6 +74,7 @@ public class SpellContainer: MonoBehaviour {
         HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(currentSpellJson, true));
     }
 	void Update(){
+        
 
 	}
 }

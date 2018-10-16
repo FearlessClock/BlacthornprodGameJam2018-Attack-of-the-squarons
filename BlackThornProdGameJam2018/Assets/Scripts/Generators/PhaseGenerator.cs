@@ -11,15 +11,17 @@ public class PhaseGenerator : MonoBehaviour {
 
     public float time;
 
-    public Vector3 spellLocation;
+    public Transform spellLocation;
 
 
     private void Start() {
             
       }
 
-    public void GenerateShapes(Vector3 spellLoc){
+    public void GenerateShapes(Transform spellLoc){
         spellLocation = spellLoc;
+        this.transform.position = spellLoc.position;
+        this.transform.rotation = Quaternion.Inverse(spellLoc.rotation);
         StartCoroutine(CoroutineGenerateShape());
     }
 
@@ -36,10 +38,10 @@ public class PhaseGenerator : MonoBehaviour {
                     shape = Instantiate<GameObject>(circlePrefab);
                     break;
                 case "square":
-                    shape = Instantiate<GameObject>(squarePrefab);
+                    shape = Instantiate<GameObject>(squarePrefab, new Vector3(phaseSettings.shapesArray[i].posX, phaseSettings.shapesArray[i].posY), Quaternion.identity);
                     break;
                 case "triangle":
-                    shape = Instantiate<GameObject>(trianglePrefab);
+                    shape = Instantiate<GameObject>(trianglePrefab, new Vector3(phaseSettings.shapesArray[i].posX, phaseSettings.shapesArray[i].posY), Quaternion.identity);
                     break;
                 default:
                     Debug.Log(phaseSettings.shapesArray[i].type);
@@ -52,7 +54,7 @@ public class PhaseGenerator : MonoBehaviour {
             if(shapeScript != null)
             {
                 shapeScript.shapeSettings = phaseSettings.shapesArray[i];
-                shapeScript.GenerateShape(spellLocation);
+                shapeScript.GenerateShape(spellLocation.position);
                 yield return new WaitForEndOfFrame();
             }
             else

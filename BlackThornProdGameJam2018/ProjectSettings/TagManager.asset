@@ -9,6 +9,7 @@ TagManager:
   - CircleSpell
   - TriangleSpell
   - SpellShape
+  - HealthBar
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - PostProcessing
   - Effects
-  - 
-  - 
+  - Solid
+  - Player
   - 
   - 
   - 
