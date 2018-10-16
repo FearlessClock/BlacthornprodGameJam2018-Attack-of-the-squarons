@@ -9,6 +9,7 @@ TagManager:
   - CircleSpell
   - TriangleSpell
   - SpellShape
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - PostProcessing
   - Effects
-  - 
+  - Background
   - 
   - 
   - 
@@ -57,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1158091911
+    locked: 0
+  - name: Front Layer
+    uniqueID: 3857878189
     locked: 0
