@@ -12,6 +12,8 @@ TagManager:
   - Background
   - HealthBar
   - EndZone
+  - Environment
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Background
   - Solid
   - Player
-  - 
+  - Environment
   - 
   - 
   - 
