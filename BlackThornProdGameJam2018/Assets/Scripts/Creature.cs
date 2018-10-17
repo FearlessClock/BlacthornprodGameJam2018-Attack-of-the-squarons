@@ -14,6 +14,7 @@ public class Creature: MonoBehaviour
     public Transform Spells;
     public GameObject spellGenerator;
     public SpellJson spellSettings;
+    public Transform spellDirection;
 
     public int direction;
 
@@ -22,14 +23,12 @@ public class Creature: MonoBehaviour
 
     public void LaunchSpell()
     {
-
-
         GameObject spellObj = Instantiate<GameObject>(spellGenerator);
 
         spellObj.transform.parent = Spells;
 
         SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
         spellScript.spellSettings = spellSettings;
-        spellScript.GenerateSpell(this.transform);
+        spellScript.GenerateSpell(spellDirection);
     }
 }
