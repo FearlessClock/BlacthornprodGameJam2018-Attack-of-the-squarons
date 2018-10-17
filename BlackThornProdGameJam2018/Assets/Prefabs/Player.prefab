@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4247503854470416}
-  - component: {fileID: 50978483325947406}
+  - component: {fileID: 50616753566991406}
   - component: {fileID: 114078853736482688}
   - component: {fileID: 95732979974190622}
   - component: {fileID: 114307166114996558}
@@ -252,26 +252,26 @@ Transform:
   m_Father: {fileID: 4845697215917508}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50978483325947406
+--- !u!50 &50616753566991406
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051364676684532}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61304966657988364
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -331,7 +331,37 @@ MonoBehaviour:
   spellGenerator: {fileID: 1049066817550036, guid: db09fb52b734e5f4f872e56cccb6aac0,
     type: 2}
   spellSettings:
-    phasesArray: []
+    phasesArray:
+    - shapesArray:
+      - posX: 1
+        posY: 2
+        duration: 2
+        size: 1
+        manaCost: 2
+        type: circle
+        elementalType: fire
+        damage: 2
+      phaseDuration: 1
+    - shapesArray:
+      - posX: -1
+        posY: 2
+        duration: 2
+        size: 2
+        manaCost: 2
+        type: triangle
+        elementalType: ice
+        damage: 2
+      phaseDuration: 1
+    - shapesArray:
+      - posX: 0
+        posY: -2
+        duration: 2
+        size: 1
+        manaCost: 2
+        type: square
+        elementalType: water
+        damage: 2
+      phaseDuration: 0
   spellDirection: {fileID: 4594451448266634}
   direction: 0
   maxHp: 0

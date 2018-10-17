@@ -37,13 +37,17 @@ public class PlayerController : Creature {
         }
         RaycastHit2D[] hits = Physics2D.CircleCastAll(this.transform.position, wallCheckRadius, move.normalized, wallCheckRadius, wallLayerMask);
 
+        /*
         foreach(RaycastHit2D hit in hits)
         {
             move.x += hit.normal.x;
             move.y += hit.normal.y;
         }
+        */
         rigBody.MovePosition(transform.position + move * movementSpeed * Time.deltaTime);
         spellDirection.transform.rotation = Quaternion.Lerp(spellDirection.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+        
+
         //This commented code works so well but doesn't stay in place when I let go
         ///this.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(-Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * Mathf.Rad2Deg, Vector3.forward);
 
