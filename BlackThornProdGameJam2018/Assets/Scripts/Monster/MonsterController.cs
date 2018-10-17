@@ -146,6 +146,7 @@ public class MonsterController : Monster {
                 AddEffect(collision.gameObject.GetComponent<CircleGenerator>().elementalType, collision.gameObject.GetInstanceID());
                 break;
             case "SquareSpell":
+                Debug.Log("" + collision.gameObject.GetComponent<SquareGenerator>() == null);
                 AddEffect(collision.gameObject.GetComponent<SquareGenerator>().elementalType, collision.gameObject.GetInstanceID());
                 break;
             case "TriangleSpell":
