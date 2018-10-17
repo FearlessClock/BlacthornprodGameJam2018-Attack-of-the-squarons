@@ -82,7 +82,6 @@ public class SpellContainer: MonoBehaviour {
 
     public void saveCode()
     {
-        Debug.Log(spell1.isOn + " " + spell2.isOn);
         if (spell1.isOn)
         {
             HandleTextFile.WriteString(spellBookLocation1, JsonUtility.ToJson(currentSpellJson, true));
