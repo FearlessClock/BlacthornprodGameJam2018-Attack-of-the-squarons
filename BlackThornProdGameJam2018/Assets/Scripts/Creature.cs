@@ -23,12 +23,15 @@ public class Creature: MonoBehaviour
 
     public void LaunchSpell()
     {
-        GameObject spellObj = Instantiate<GameObject>(spellGenerator);
+        if(spellGenerator != null)
+        {
+            GameObject spellObj = Instantiate<GameObject>(spellGenerator);
 
-        spellObj.transform.parent = Spells;
+            spellObj.transform.parent = Spells;
 
-        SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
-        spellScript.spellSettings = spellSettings;
-        spellScript.GenerateSpell(spellDirection);
+            SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
+            spellScript.spellSettings = spellSettings;
+            spellScript.GenerateSpell(spellDirection);
+        }
     }
 }
