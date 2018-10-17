@@ -7,7 +7,6 @@ public class WalkToBehaviour : StateMachineBehaviour {
     private MonsterController controller;
     private GameObject player;
     private Vector3 target;
-    public float speed;
 
     private bool idleState;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -40,7 +39,7 @@ public class WalkToBehaviour : StateMachineBehaviour {
 
             if (hit == null)
             {
-                controller.transform.position = Vector3.Lerp(controller.transform.position, controller.transform.position + moveTo * speed, Time.deltaTime);
+                controller.transform.position = Vector3.Lerp(controller.transform.position, controller.transform.position + moveTo * controller.movementSpeed, Time.deltaTime);
             }
         }
     }

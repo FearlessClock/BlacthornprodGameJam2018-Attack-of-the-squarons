@@ -36,7 +36,6 @@ public class PlayerController : Creature {
             rotation = Quaternion.Euler(0, 0, 180);
         }
         RaycastHit2D[] hits = Physics2D.CircleCastAll(this.transform.position, wallCheckRadius, move.normalized, wallCheckRadius, wallLayerMask);
-        bool canMove = true;
 
         foreach(RaycastHit2D hit in hits)
         {

@@ -11,6 +11,7 @@ TagManager:
   - SpellShape
   - Background
   - HealthBar
+  - EndZone
   layers:
   - Default
   - TransparentFX
@@ -25,9 +26,6 @@ TagManager:
   - Background
   - Solid
   - Player
-  - 
-  - 
-  - 
   - 
   - 
   - 
