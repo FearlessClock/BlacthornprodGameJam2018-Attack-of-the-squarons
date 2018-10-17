@@ -8,14 +8,17 @@ public class PlayerController : Creature {
     public Rigidbody2D rigBody;
     private float threshold = 0;
     public float rotationSpeed;
+    public LayerMask wallLayerMask;
+    public float wallCheckRadius;
 
     private void Awake()
     {
         rigBody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    void Update () {
+    void FixedUpdate () {
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+
         Quaternion rotation = new Quaternion();
         if (Input.GetAxis("Horizontal") > threshold)
         {
@@ -32,11 +35,18 @@ public class PlayerController : Creature {
         {
             rotation = Quaternion.Euler(0, 0, 180);
         }
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(this.transform.position, wallCheckRadius, move.normalized, wallCheckRadius, wallLayerMask);
+        bool canMove = true;
 
+        foreach(RaycastHit2D hit in hits)
+        {
+            move.x += hit.normal.x;
+            move.y += hit.normal.y;
+        }
+        rigBody.MovePosition(transform.position + move * movementSpeed * Time.deltaTime);
         spellDirection.transform.rotation = Quaternion.Lerp(spellDirection.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         //This commented code works so well but doesn't stay in place when I let go
         ///this.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(-Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * Mathf.Rad2Deg, Vector3.forward);
-        rigBody.MovePosition(transform.position + move * movementSpeed * Time.deltaTime);
 
         //this.transform.position += move * speed * Time.deltaTime;
 

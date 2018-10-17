@@ -152,51 +152,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114078853736482688, guid: a5a7b267b43d85c438854ec374431059,
-        type: 2}
-      propertyPath: movementSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114078853736482688, guid: a5a7b267b43d85c438854ec374431059,
-        type: 2}
-      propertyPath: Spells
-      value: 
-      objectReference: {fileID: 491806865}
-    - target: {fileID: 114078853736482688, guid: a5a7b267b43d85c438854ec374431059,
-        type: 2}
-      propertyPath: spellGenerator
-      value: 
-      objectReference: {fileID: 1049066817550036, guid: db09fb52b734e5f4f872e56cccb6aac0,
-        type: 2}
-    - target: {fileID: 114307166114996558, guid: a5a7b267b43d85c438854ec374431059,
-        type: 2}
-      propertyPath: creature
-      value: 
-      objectReference: {fileID: 549691184}
     - target: {fileID: 114307166114996558, guid: a5a7b267b43d85c438854ec374431059,
         type: 2}
       propertyPath: spellParent
       value: 
       objectReference: {fileID: 491806865}
-    - target: {fileID: 4247503854470416, guid: a5a7b267b43d85c438854ec374431059, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114078853736482688, guid: a5a7b267b43d85c438854ec374431059,
         type: 2}
-      propertyPath: spellDirection
+      propertyPath: Spells
       value: 
-      objectReference: {fileID: 635708353}
-    - target: {fileID: 114078853736482688, guid: a5a7b267b43d85c438854ec374431059,
-        type: 2}
-      propertyPath: threshold
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114078853736482688, guid: a5a7b267b43d85c438854ec374431059,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 6
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 491806865}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a7b267b43d85c438854ec374431059, type: 2}
   m_IsPrefabAsset: 0
@@ -228,12 +193,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &549691184 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114078853736482688, guid: a5a7b267b43d85c438854ec374431059,
-    type: 2}
-  m_PrefabInternal: {fileID: 197950652}
-  m_Script: {fileID: 11500000, guid: 1245c68808417d1499284da2a6a7cfc8, type: 3}
 --- !u!1 &571901208
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,34 +269,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &635708352
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 635708353}
-  m_Layer: 11
-  m_Name: PlayerDirection
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &635708353
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 635708352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1467452921}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &850692034
 Prefab:
@@ -431,11 +362,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c0038ae094a1ac47b83229569ecdd2c, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &1467452921 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4247503854470416, guid: a5a7b267b43d85c438854ec374431059,
-    type: 2}
-  m_PrefabInternal: {fileID: 197950652}
 --- !u!1001 &1588450027
 Prefab:
   m_ObjectHideFlags: 0

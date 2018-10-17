@@ -110,6 +110,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1759112432673092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4594451448266634}
+  m_Layer: 11
+  m_Name: PlayerDirection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1822654252320556
 GameObject:
   m_ObjectHideFlags: 1
@@ -133,10 +148,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051364676684532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.22, y: 1.76, z: -2.3471441}
+  m_LocalPosition: {x: 2.2950888, y: -0.6388029, z: -2.3471441}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4845697215917508}
+  - {fileID: 4594451448266634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,6 +167,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4845697215917508}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4594451448266634
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1759112432673092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4247503854470416}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4845697215917508
@@ -297,11 +326,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1245c68808417d1499284da2a6a7cfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  movementSpeed: 5
   Spells: {fileID: 0}
-  spellGenerator: {fileID: 0}
+  spellGenerator: {fileID: 1049066817550036, guid: db09fb52b734e5f4f872e56cccb6aac0,
+    type: 2}
   spellSettings:
     phasesArray: []
+  spellDirection: {fileID: 4594451448266634}
+  direction: 0
+  maxHp: 0
+  currentHp: 0
+  rigBody: {fileID: 0}
+  rotationSpeed: 6
 --- !u!114 &114307166114996558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,9 +352,7 @@ MonoBehaviour:
   spellBookLocation: Assets/Resources/spells.json
   code: {fileID: 0}
   spellInterpreter: {fileID: 0}
-  spellGenerator: {fileID: 1049066817550036, guid: db09fb52b734e5f4f872e56cccb6aac0,
-    type: 2}
-  player: {fileID: 114078853736482688}
+  creature: {fileID: 114078853736482688}
   spellParent: {fileID: 0}
 --- !u!212 &212038736504095556
 SpriteRenderer:
