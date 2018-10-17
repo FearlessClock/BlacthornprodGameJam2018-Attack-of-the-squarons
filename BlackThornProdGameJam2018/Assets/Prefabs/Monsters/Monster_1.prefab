@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 114084405020062946}
   - component: {fileID: 60920998754609090}
   - component: {fileID: 95663179571140284}
+  - component: {fileID: 114169433876024442}
   m_Layer: 0
   m_Name: Monster_1
   m_TagString: Untagged
@@ -387,12 +388,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ad90a3c452f0a458c2483aec862b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 5
+  Spells: {fileID: 0}
+  spellGenerator: {fileID: 1049066817550036, guid: db09fb52b734e5f4f872e56cccb6aac0,
+    type: 2}
+  spellSettings:
+    phasesArray: []
+  spellDirection: {fileID: 0}
+  direction: 0
   maxHp: 100
-  sightRange: 2
+  currentHp: 0
+  sightRange: 8
+  attackRange: 4
+  distanceToPlayer: 2
   collisionCheckSize: 1
   wallLayerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+--- !u!114 &114169433876024442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290658488041754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500175d33238954b9a07bf5cf436f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellBookLocation: Assets/Resources/spells.json
+  code: {fileID: 0}
+  spellInterpreter: {fileID: 0}
+  creature: {fileID: 114084405020062946}
+  spellParent: {fileID: 0}
 --- !u!212 &212164032468303298
 SpriteRenderer:
   m_ObjectHideFlags: 1
