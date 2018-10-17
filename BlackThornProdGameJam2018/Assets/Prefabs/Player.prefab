@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 61304966657988364}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,6 +338,10 @@ MonoBehaviour:
   currentHp: 0
   rigBody: {fileID: 0}
   rotationSpeed: 6
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  wallCheckRadius: 0
 --- !u!114 &114307166114996558
 MonoBehaviour:
   m_ObjectHideFlags: 1
