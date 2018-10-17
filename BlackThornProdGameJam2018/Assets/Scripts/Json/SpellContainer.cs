@@ -73,8 +73,9 @@ public class SpellContainer: MonoBehaviour {
     {
         HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(currentSpellJson, true));
     }
-	void Update(){
-        
 
-	}
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

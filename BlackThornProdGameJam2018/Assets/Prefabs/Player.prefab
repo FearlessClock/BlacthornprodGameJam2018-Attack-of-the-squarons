@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 95732979974190622}
   - component: {fileID: 114307166114996558}
   - component: {fileID: 61304966657988364}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4979566591640304}
   - component: {fileID: 212876208754136984}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: R arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345871603496136}
   - component: {fileID: 212441627451171594}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: L leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4845697215917508}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4878225793395304}
   - component: {fileID: 212165653593224214}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905594023647460}
   - component: {fileID: 212977118710418218}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: L arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4594451448266634}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: PlayerDirection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869428295708122}
   - component: {fileID: 212038736504095556}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: R leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020337224, y: -0.4677676}
+  m_Offset: {x: -0.020337105, y: -0.9445123}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -295,7 +295,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1320086, y: 3.8879573}
+  m_Size: {x: 4.1320086, y: 4.474721}
   m_EdgeRadius: 0
 --- !u!95 &95732979974190622
 Animator:
@@ -338,6 +338,10 @@ MonoBehaviour:
   currentHp: 0
   rigBody: {fileID: 0}
   rotationSpeed: 6
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  wallCheckRadius: 0.2
 --- !u!114 &114307166114996558
 MonoBehaviour:
   m_ObjectHideFlags: 1
