@@ -1,0 +1,35 @@
+{
+    "phasesArray": [
+        {
+            "shapesArray": [
+                {
+                    "posX": 0.0,
+                    "posY": 0.0,
+                    "duration": 1.0,
+                    "size": 1.0,
+                    "manaCost": 1.5,
+                    "type": "triangle",
+                    "elementalType": "ice",
+                    "damage": 1.0
+                }
+            ],
+            "phaseDuration": 1.0
+        },
+        {
+            "shapesArray": [
+                {
+                    "posX": 0.0,
+                    "posY": 0.0,
+                    "duration": 1.0,
+                    "size": 1.0,
+                    "manaCost": 1.5,
+                    "type": "triangle",
+                    "elementalType": "ice",
+                    "damage": 1.0
+                }
+            ],
+            "phaseDuration": 0.0
+        }
+    ],
+    "manaCost": 3.0
+}

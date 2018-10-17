@@ -11,6 +11,7 @@ public class Monster: Creature
     //Enemy AI stats
     public float sightRange;
     public float attackRange;
+    public float scaredRange;
 
     private GameObject healthBar;
     private float initScaleX;

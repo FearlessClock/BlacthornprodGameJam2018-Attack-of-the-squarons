@@ -20,18 +20,34 @@ public class Creature: MonoBehaviour
 
     public float maxHp;
     public float currentHp;
+    public float maxMana;
+    public float currentMana;
+    public float regenMana;
+
+    public void UpdateMana()
+    {
+        if(currentMana + regenMana < maxMana)
+        {
+            currentMana += regenMana;
+        }
+    }
 
     public void LaunchSpell()
     {
         if(spellGenerator != null)
         {
-            GameObject spellObj = Instantiate<GameObject>(spellGenerator);
+            if(currentMana > spellSettings.manaCost)
+            {
+                GameObject spellObj = Instantiate<GameObject>(spellGenerator);
 
-            spellObj.transform.parent = Spells;
+                spellObj.transform.parent = Spells;
 
-            SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
-            spellScript.spellSettings = spellSettings;
-            spellScript.GenerateSpell(spellDirection);
+                SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
+                spellScript.spellSettings = spellSettings;
+                spellScript.GenerateSpell(spellDirection);
+
+                currentMana -= spellSettings.manaCost;
+            }
         }
     }
 }

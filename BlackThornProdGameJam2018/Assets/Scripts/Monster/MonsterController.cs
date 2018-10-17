@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,8 +18,11 @@ public class MonsterController : Monster {
     private float timeBTWEffectUpdates;
     private float MaxTimeBTWEffectUpdates = 0.2f;
 
+    public Rigidbody2D rigidbody;
+
     // Use this for initialization
     void Start () {
+        rigidbody = this.GetComponent<Rigidbody2D>();
         MonsterSetup();
         timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
         currentHp = maxHp;
@@ -26,7 +30,7 @@ public class MonsterController : Monster {
 	
 	// Update is called once per frame
 	void Update () {
-
+        UpdateMana();
         ApplyEffects();
         timeBTWEffectUpdates -= Time.deltaTime; // Time to update over time effects
     }
@@ -182,5 +186,17 @@ public class MonsterController : Monster {
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, attackRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(this.transform.position, sightRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(this.transform.position, distanceToPlayer);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(this.transform.position, scaredRange);
     }
 }

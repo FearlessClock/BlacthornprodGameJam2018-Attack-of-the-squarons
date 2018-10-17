@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WalkToBehaviour : StateMachineBehaviour {
 
-    private MonsterController controller;
+    private MonsterController monster;
     private GameObject player;
     private Vector3 target;
 
@@ -12,7 +12,7 @@ public class WalkToBehaviour : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        controller = animator.transform.gameObject.GetComponent<MonsterController>();
+        monster = animator.transform.gameObject.GetComponent<MonsterController>();
         player = GameObject.FindObjectOfType<PlayerController>().gameObject;
         idleState = false;
     }
@@ -20,27 +20,26 @@ public class WalkToBehaviour : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        float dis = Vector3.Distance(controller.transform.position, player.transform.position);
-        //Debug.Log("WalkTo " + dis);
-        if (dis < controller.attackRange)
+        float dis = Vector3.Distance(monster.transform.position, player.transform.position);
+        if (dis < monster.scaredRange)
+        {
+            target = -(player.transform.position - monster.transform.position).normalized * monster.scaredRange;
+            Vector3 stapNaDieTarget = Vector3.Lerp(monster.transform.position, monster.transform.position+ target, Time.deltaTime);
+            monster.rigidbody.MovePosition(stapNaDieTarget);
+        }
+        else if(dis < monster.attackRange)
         {
             animator.SetTrigger("Attack");
         }
-        else if(dis > controller.sightRange)
+        else if(dis > monster.sightRange)
         {
             animator.SetTrigger("Idle");
         }
         else
         {
             target = player.transform.position ;
-            Vector3 toTarget = (- target + controller.transform.position).normalized * controller.distanceToPlayer;
-            Vector3 moveTo = (target + toTarget - controller.transform.position).normalized;
-            Collider2D hit = Physics2D.OverlapCircle(controller.transform.position + moveTo, controller.collisionCheckSize, controller.wallLayerMask);
-
-            if (hit == null)
-            {
-                controller.transform.position = Vector3.Lerp(controller.transform.position, controller.transform.position + moveTo * controller.movementSpeed, Time.deltaTime);
-            }
+            Vector3 stapNaDieTarget = Vector3.Lerp(monster.transform.position, target, Time.deltaTime);
+            monster.rigidbody.MovePosition(stapNaDieTarget);
         }
     }
 

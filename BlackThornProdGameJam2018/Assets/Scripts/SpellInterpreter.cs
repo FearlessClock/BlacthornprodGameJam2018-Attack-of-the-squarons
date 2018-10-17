@@ -3,11 +3,20 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class SpellInterpreter : MonoBehaviour {
 
     string[] functions;
+
+    public float distanceWeight;
+    public float maxDistance;
+    public float sizeWeight;
+    public float maxSize;
+    public float damageWeight;
+    public float maxDamage;
+    public float durationWeight;
+    public float maxDuration;
 
     public string delayName = "delay";
     Dictionary<string, ShapeType> shapeDict;
@@ -44,7 +53,6 @@ public class SpellInterpreter : MonoBehaviour {
                 if (tillParan.Length == functions[i].Length)
                 {
                     if(tillParan.Equals(delayName)){
-                        Debug.Log("End a phase");
                         currentPhase.phaseDuration = (float)Convert.ToDouble(paramsFunc[0]);
                         currentPhase.FinishShapeAdding();
                         spellJson.AddPhase(currentPhase);
@@ -72,7 +80,11 @@ public class SpellInterpreter : MonoBehaviour {
             currentPhase.FinishShapeAdding();
             spellJson.AddPhase(currentPhase);
         }
-        spellJson.finishPhaseAdding(); 
+        spellJson.finishPhaseAdding();
+        foreach (PhaseJson phase in spellJson.phasesArray)
+        {
+            spellJson.manaCost += phase.GetManaCost();
+        }
         return spellJson;
     }
 
@@ -121,14 +133,22 @@ public class SpellInterpreter : MonoBehaviour {
     ShapeJson AddShape(int x, int y, int damage, int duration, int size, string damageType, string type)
     {
         ShapeJson shapeJson = new ShapeJson();
-        shapeJson.posX = x;
-        shapeJson.posY = y;
-        shapeJson.damage = damage;
-        shapeJson.size = size;
-        shapeJson.duration = duration;
+        Vector2 spellPos = new Vector2(x, y);
+        if(spellPos.magnitude > maxDistance)
+        {
+            spellPos = spellPos.normalized * maxDistance;
+        }
+        shapeJson.posX = spellPos.x;
+        shapeJson.posY = spellPos.y;
+        shapeJson.damage = damage < maxDamage? damage : maxDamage;
+        shapeJson.size = size < maxSize? size: maxSize;
+        shapeJson.duration = duration < maxDuration? duration: maxDuration;
         shapeJson.elementalType = damageType;
         //get an equation that will give us the manacost in function of the damage, position, size and duration
-        shapeJson.manaCost = 2;
+        shapeJson.manaCost = distanceWeight * (spellPos.magnitude/maxDistance) + 
+                                durationWeight * (shapeJson.duration /maxDuration) + 
+                                    sizeWeight * (shapeJson.size /maxSize) + 
+                                        damageWeight * (shapeJson.damage / maxDamage);
         shapeJson.type = type;
         return shapeJson;
     }

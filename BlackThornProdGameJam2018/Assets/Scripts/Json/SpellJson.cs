@@ -10,6 +10,7 @@ public class SpellJson{
 	public List<PhaseJson> phases = new List<PhaseJson>();
       
     public PhaseJson[] phasesArray;
+    public float manaCost;
 	public void AddPhase(PhaseJson p)
 	{
 		phases.Add(p);

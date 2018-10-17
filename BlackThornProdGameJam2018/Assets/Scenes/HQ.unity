@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 762578514}
   - component: {fileID: 762578513}
   - component: {fileID: 762578512}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: HD
   m_TagString: Background
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1225606368}
   - component: {fileID: 1225606369}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: HD_front wall
   m_TagString: Background
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272193061}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,6 +560,21 @@ Prefab:
       propertyPath: spellParent
       value: 
       objectReference: {fileID: 417425535}
+    - target: {fileID: 50978483325947406, guid: a5a7b267b43d85c438854ec374431059,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50978483325947406, guid: a5a7b267b43d85c438854ec374431059,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50978483325947406, guid: a5a7b267b43d85c438854ec374431059,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a7b267b43d85c438854ec374431059, type: 2}
   m_IsPrefabAsset: 0

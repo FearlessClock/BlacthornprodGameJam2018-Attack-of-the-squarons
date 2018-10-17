@@ -29,7 +29,8 @@ public class HandleTextFile
 
 public class SpellContainer: MonoBehaviour {
 
-    public string spellBookLocation;
+    public string spellBookLocation1;
+    public string spellBookLocation2;
 
     SpellJson spellSettings;
 
@@ -42,15 +43,25 @@ public class SpellContainer: MonoBehaviour {
 
     SpellGenerator currentSpell;
     SpellJson currentSpellJson;
+    
+    public Toggle spell1;
+    public Toggle spell2;
 
     private void Start() {
-        string spellsText = HandleTextFile.ReadString(spellBookLocation);
+        string spellsText = HandleTextFile.ReadString(spellBookLocation1);
+        string spellsText2 = HandleTextFile.ReadString(spellBookLocation2);
         spellSettings = JsonUtility.FromJson<SpellJson>(spellsText);
 
         if (creature != null){
             creature.spellSettings = spellSettings;
         }
     }
+
+    public void OnToggleChangedSpell1()
+    {
+
+    }
+    
 
     public void ReadCode(){
         foreach(Transform t in spellParent)
@@ -71,11 +82,21 @@ public class SpellContainer: MonoBehaviour {
 
     public void saveCode()
     {
-        HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(currentSpellJson, true));
+        Debug.Log(spell1.isOn + " " + spell2.isOn);
+        if (spell1.isOn)
+        {
+            HandleTextFile.WriteString(spellBookLocation1, JsonUtility.ToJson(currentSpellJson, true));
+        }
+        if (spell2.isOn)
+        {
+            HandleTextFile.WriteString(spellBookLocation2, JsonUtility.ToJson(currentSpellJson, true));
+        }
     }
 
     public void Destroy()
     {
         Destroy(gameObject);
     }
+
+    
 }

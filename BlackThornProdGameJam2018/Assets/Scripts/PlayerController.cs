@@ -16,7 +16,9 @@ public class PlayerController : Creature {
         rigBody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate () {
+    void FixedUpdate ()
+    {
+        UpdateMana();
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
         Quaternion rotation = new Quaternion();

@@ -48,7 +48,7 @@ public class IdleBehaviour : StateMachineBehaviour {
 
     private void ChangeTarget()
     {
-        target = Random.insideUnitSphere * 2 + controller.transform.position;
+        target = Random.insideUnitSphere * 4 + controller.transform.position;
         target.z = 0;
     }
 

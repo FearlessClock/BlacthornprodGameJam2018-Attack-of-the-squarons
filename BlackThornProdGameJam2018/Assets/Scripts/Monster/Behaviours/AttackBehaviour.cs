@@ -19,23 +19,18 @@ public class AttackBehaviour : StateMachineBehaviour {
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float disToPlayer = Vector3.Distance(player.transform.position, animator.transform.position);
-        //Debug.Log("Attack: " + disToPlayer);
-        if (disToPlayer > 2)
+        if (disToPlayer < monster.scaredRange || disToPlayer > monster.attackRange)
         {
             animator.SetTrigger("WalkTo");
         }
         else if (disToPlayer < monster.attackRange)
         {
+            Vector3 aimAtPlayer = (monster.transform.position - player.transform.position).normalized;
+            float angle = -Mathf.Atan2(aimAtPlayer.x, aimAtPlayer.y);
+            monster.spellDirection.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
             if (!spawnOne)
             {
-                GameObject spellObj = Instantiate<GameObject>(monster.spellGenerator);
-
-                spellObj.transform.parent = monster.Spells;
-
-                SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
-                spellScript.spellSettings = monster.spellSettings;
-                spellScript.GenerateSpell(monster.transform);
-                spawnOne = true;
+                monster.LaunchSpell();
             }
         }
     }
