@@ -69,8 +69,7 @@ public class SpellContainer: MonoBehaviour {
             Destroy(t.gameObject, 0.1f);
         }
         //Interpret the code written by the player
-        currentSpellJson = spellInterpreter.InterpretScript(code.text); 
-        Debug.Log(JsonUtility.ToJson(currentSpellJson, true));
+        currentSpellJson = spellInterpreter.InterpretScript(code.text);
         //Turn the json into an actaul spell
         GameObject spellObj = Instantiate<GameObject>(creature.spellGenerator);
         spellObj.transform.parent = spellParent;

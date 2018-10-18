@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SpellInterpreter : MonoBehaviour {
 
@@ -17,6 +18,8 @@ public class SpellInterpreter : MonoBehaviour {
     public float maxDamage;
     public float durationWeight;
     public float maxDuration;
+
+    public TextMeshProUGUI consoleText;
 
     public string delayName = "delay";
     Dictionary<string, ShapeType> shapeDict;
@@ -41,6 +44,7 @@ public class SpellInterpreter : MonoBehaviour {
         SpellJson spellJson = new SpellJson();
         
         string[] sepCode = null;
+        code = code.Replace("\n", "");
         sepCode = code.Split(';');
         PhaseJson currentPhase = new PhaseJson();
         for (int j = 0; j < sepCode.Length - 1; j++)  //-1 because the line after the ; is counted with
@@ -48,6 +52,7 @@ public class SpellInterpreter : MonoBehaviour {
             string tillParan = sepCode[j].Split('(')[0].ToLower();
             string paramsValues = sepCode[j].Split('(')[1].Replace(")", "");
             string[] paramsFunc = paramsValues.Split(',');
+            bool foundFunction = false;
             for (int i = 0; i < functions.Length; i++)
             {
                 if (tillParan.Length == functions[i].Length)
@@ -65,14 +70,21 @@ public class SpellInterpreter : MonoBehaviour {
                                 shapeDict.TryGetValue(tillParan, out shapeType);
 
                                 currentPhase.AddShape(CreateShape(shapeType, paramsFunc));
+                                foundFunction = true;
                             }
                             catch (ArgumentException)
                             {
+                                LogToConsole(tillParan + " doesn't exist");
                                 Debug.Log("Doesn't exist");
                                 throw;
                             }
                     }
                 }
+            }
+            if (!foundFunction)
+            {
+                LogToConsole("The " + tillParan + " function doesn't exist");
+                Debug.Log("The "+ tillParan +" function doesn't exist");
             }
         }
         if(currentPhase.shapes.Count > 0){
@@ -121,10 +133,17 @@ public class SpellInterpreter : MonoBehaviour {
         {
             shape = AddShape(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]), Convert.ToInt32(funcParams[4]), funcParams[5], type);
         }
+        else if(funcParams.Length > 6)
+        {
+            shape = null;
+            LogToConsole("There are only 6 parameters");
+            Debug.Log("There are only 6 parameters");
+        }
         else
         {
             shape = null;
-            Debug.Log("There are only 6 parameters");
+            LogToConsole("There are 6 parameters");
+            Debug.Log("There are 6 parameters");
         }
         return shape;
     }
@@ -151,5 +170,10 @@ public class SpellInterpreter : MonoBehaviour {
                                         damageWeight * (shapeJson.damage / maxDamage);
         shapeJson.type = type;
         return shapeJson;
+    }
+
+    public void LogToConsole(string log)
+    {
+        consoleText.text = "> " + log + "\n"+consoleText.text;
     }
 }
