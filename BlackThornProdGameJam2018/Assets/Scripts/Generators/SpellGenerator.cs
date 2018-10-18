@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpellGenerator : MonoBehaviour
 {
-
+    public string ownerTag;
     public SpellJson spellSettings;
 
     public GameObject phase;

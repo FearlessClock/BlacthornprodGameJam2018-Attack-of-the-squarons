@@ -26,6 +26,7 @@ public class Monster: Creature
         spellEffects = new List<SpellEffect>();
         Debug.Log("Spell effects " + spellEffects.Count);
         currentHp = maxHp;
+        currentMana = maxMana;
     }
 
     public void ApplyEffects()

@@ -16,19 +16,34 @@ public class Creature: MonoBehaviour
     public SpellJson spellSettings;
     public Transform spellDirection;
 
-    public int direction;
-
     public float maxHp;
     public float currentHp;
     public float maxMana;
     public float currentMana;
     public float regenMana;
 
+    public float spellCooldownTime;
+    public float spellTimer;
+    
+    public bool spellReady;
+
     public void UpdateMana()
     {
-        if(currentMana + regenMana < maxMana)
+        if(currentMana + regenMana <= maxMana)
         {
-            currentMana += regenMana;
+            currentMana += regenMana * Time.deltaTime;
+        }
+    }
+
+    public void UpdateSpellCooldown()
+    {
+        if (!spellReady)
+        {
+            spellTimer -= Time.deltaTime;
+            if(spellTimer <= 0)
+            {
+                spellReady = true;
+            }
         }
     }
 
@@ -36,7 +51,7 @@ public class Creature: MonoBehaviour
     {
         if(spellGenerator != null)
         {
-            if(currentMana > spellSettings.manaCost)
+            if(currentMana >= spellSettings.manaCost && spellReady)
             {
                 GameObject spellObj = Instantiate<GameObject>(spellGenerator);
 
@@ -46,7 +61,10 @@ public class Creature: MonoBehaviour
                 spellScript.spellSettings = spellSettings;
                 spellScript.GenerateSpell(spellDirection);
 
+                spellScript.ownerTag = this.gameObject.tag;
                 currentMana -= spellSettings.manaCost;
+                spellReady = false;
+                spellTimer = spellCooldownTime;
             }
         }
     }

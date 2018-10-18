@@ -326,11 +326,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6500175d33238954b9a07bf5cf436f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellBookLocation: Assets/Resources/spells.json
+  spellBookLocation1: Assets/Resources/spell1.json
+  spellBookLocation2: Assets/Resources/spell2.json
   code: {fileID: 0}
   spellInterpreter: {fileID: 0}
   creature: {fileID: 114919171157344604}
   spellParent: {fileID: 0}
+  spell1: {fileID: 0}
+  spell2: {fileID: 0}
 --- !u!114 &114919171157344604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,10 +381,13 @@ MonoBehaviour:
         elementalType: water
         damage: 2
       phaseDuration: 0
+    manaCost: 0
   spellDirection: {fileID: 4013286720945746}
-  direction: 0
-  maxHp: 0
+  maxHp: 100
   currentHp: 0
+  maxMana: 10
+  currentMana: 0
+  regenMana: 1
   rigBody: {fileID: 0}
   rotationSpeed: 6
   wallLayerMask:

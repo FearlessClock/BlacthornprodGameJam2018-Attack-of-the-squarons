@@ -18,11 +18,11 @@ public class MonsterController : Monster {
     private float timeBTWEffectUpdates;
     private float MaxTimeBTWEffectUpdates = 0.2f;
 
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D rigidbodyComp;
 
     // Use this for initialization
     void Start () {
-        rigidbody = this.GetComponent<Rigidbody2D>();
+        rigidbodyComp = this.GetComponent<Rigidbody2D>();
         MonsterSetup();
         timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
         currentHp = maxHp;
@@ -31,6 +31,7 @@ public class MonsterController : Monster {
 	// Update is called once per frame
 	void Update () {
         UpdateMana();
+        UpdateSpellCooldown();
         ApplyEffects();
         timeBTWEffectUpdates -= Time.deltaTime; // Time to update over time effects
     }
@@ -144,18 +145,20 @@ public class MonsterController : Monster {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        switch(collision.tag)
-        {
-            case "CircleSpell":
-                AddEffect(collision.gameObject.GetComponent<CircleGenerator>().elementalType, collision.gameObject.GetInstanceID());
-                break;
-            case "SquareSpell":
-                Debug.Log("" + collision.gameObject.GetComponent<SquareGenerator>() == null);
-                AddEffect(collision.gameObject.GetComponent<SquareGenerator>().elementalType, collision.gameObject.GetInstanceID());
-                break;
-            case "TriangleSpell":
-                AddEffect(collision.gameObject.GetComponent<TriangleGenerator>().elementalType, collision.gameObject.GetInstanceID());
-                break;
+        if(!collision.gameObject.transform.parent.parent.GetComponent<SpellGenerator>().ownerTag.Equals(this.tag)){
+            switch(collision.tag)
+            {
+                case "CircleSpell":
+                    AddEffect(collision.gameObject.GetComponent<CircleGenerator>().elementalType, collision.gameObject.GetInstanceID());
+                    break;
+                case "SquareSpell":
+                    Debug.Log("" + collision.gameObject.GetComponent<SquareGenerator>() == null);
+                    AddEffect(collision.gameObject.GetComponent<SquareGenerator>().elementalType, collision.gameObject.GetInstanceID());
+                    break;
+                case "TriangleSpell":
+                    AddEffect(collision.gameObject.GetComponent<TriangleGenerator>().elementalType, collision.gameObject.GetInstanceID());
+                    break;
+            }
         }
     }
 

@@ -19,6 +19,7 @@ public class IdleBehaviour : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //Debug.Log("STATE: Idle ");
         Vector3 moveTo = Vector3.Lerp(controller.transform.position, target, Time.deltaTime);
 
         Collider2D hit = Physics2D.OverlapCircle(moveTo, controller.collisionCheckSize, controller.wallLayerMask);

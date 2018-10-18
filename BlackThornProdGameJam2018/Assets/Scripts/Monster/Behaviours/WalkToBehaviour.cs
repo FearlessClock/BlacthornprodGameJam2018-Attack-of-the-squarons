@@ -21,11 +21,12 @@ public class WalkToBehaviour : StateMachineBehaviour {
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float dis = Vector3.Distance(monster.transform.position, player.transform.position);
-        if (dis < monster.scaredRange)
+        //Debug.Log("STATE: WalkTo " + dis);
+        if (dis <= monster.scaredRange)
         {
             target = -(player.transform.position - monster.transform.position).normalized * monster.scaredRange;
-            Vector3 stapNaDieTarget = Vector3.Lerp(monster.transform.position, monster.transform.position+ target, Time.deltaTime);
-            monster.rigidbody.MovePosition(stapNaDieTarget);
+            Vector3 stapNaDieTarget = (monster.transform.position - monster.transform.position + target).normalized * monster.movementSpeed;
+            monster.rigidbodyComp.MovePosition(monster.transform.position + stapNaDieTarget * Time.deltaTime);
         }
         else if(dis < monster.attackRange)
         {
@@ -38,10 +39,12 @@ public class WalkToBehaviour : StateMachineBehaviour {
         else
         {
             target = player.transform.position ;
-            Vector3 stapNaDieTarget = Vector3.Lerp(monster.transform.position, target, Time.deltaTime);
-            monster.rigidbody.MovePosition(stapNaDieTarget);
+            Vector3 stapNaDieTarget = -(monster.transform.position - target).normalized * monster.movementSpeed;
+            monster.rigidbodyComp.MovePosition(monster.transform.position + stapNaDieTarget* Time.deltaTime);
         }
     }
+
+    
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

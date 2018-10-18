@@ -14,11 +14,13 @@ public class PlayerController : Creature {
     private void Awake()
     {
         rigBody = gameObject.GetComponent<Rigidbody2D>();
+        currentMana = maxMana;
     }
 
     void FixedUpdate ()
     {
         UpdateMana();
+        UpdateSpellCooldown();
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
         Quaternion rotation = new Quaternion();

@@ -417,19 +417,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ad90a3c452f0a458c2483aec862b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 3
   Spells: {fileID: 0}
   spellGenerator: {fileID: 1049066817550036, guid: db09fb52b734e5f4f872e56cccb6aac0,
     type: 2}
   spellSettings:
     phasesArray: []
+    manaCost: 0
   spellDirection: {fileID: 4126615052386474}
-  direction: 0
   maxHp: 100
   currentHp: 0
+  maxMana: 6
+  currentMana: 0
+  regenMana: 0.1
+  spellCooldownTime: 5
+  spellTimer: 0
+  spellReady: 1
   sightRange: 12.84
-  attackRange: 5.3
-  scaredRange: 2.69
+  attackRange: 4.5
+  scaredRange: 3.5
   distanceToPlayer: 5.13
   collisionCheckSize: 1
   wallLayerMask:
@@ -438,7 +444,7 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 4096
-  rigidbody: {fileID: 0}
+  rigidbodyComp: {fileID: 0}
 --- !u!114 &114169433876024442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -450,11 +456,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6500175d33238954b9a07bf5cf436f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellBookLocation: Assets/Resources/spells.json
+  spellBookLocation1: Assets/Resources/EnemySpell.json
+  spellBookLocation2: Assets/Resources/EnemySpell.json
   code: {fileID: 0}
   spellInterpreter: {fileID: 0}
   creature: {fileID: 114084405020062946}
   spellParent: {fileID: 0}
+  spell1: {fileID: 0}
+  spell2: {fileID: 0}
 --- !u!212 &212164032468303298
 SpriteRenderer:
   m_ObjectHideFlags: 1
