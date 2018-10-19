@@ -10,9 +10,11 @@ public class HQController : MonoBehaviour {
     public int levelId;
     public FadeValues fadeValues;
     public Image fadeOutPanel;
+    private bool startTransition;
 
     private void Start()
     {
+        startTransition = false;
         HQAnimator = GetComponent<Animator>();
     }
 
@@ -31,10 +33,19 @@ public class HQController : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-        if (Input.GetButtonUp("Fire1"))
+        
+        if (Input.GetButtonUp("Fire1") && !startTransition)
         {
-            SceneManager.LoadScene(levelId);
+            if (levelId < 0)
+            {
+                Application.Quit();
+            }
+            else
+            {
+                Debug.Log("Hello");
+                StartCoroutine("FadeOut");
+                startTransition = true;
+            }
         }
     }
 

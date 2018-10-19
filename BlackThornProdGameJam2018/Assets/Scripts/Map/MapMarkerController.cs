@@ -10,6 +10,7 @@ public class MapMarkerController : MonoBehaviour {
     private Camera cameraObj;
     public Image fadeOutPanel;
     public FadeValues fadeValues;
+    private bool startTransition;
 	// Use this for initialization
 	void Start () {
         cameraObj = Camera.main;
@@ -23,7 +24,11 @@ public class MapMarkerController : MonoBehaviour {
 
     public void LaunchFadeOutAsCoRoutine()
     {
-        StartCoroutine("FadeOut");
+        if (!startTransition)
+        {
+            StartCoroutine("FadeOut");
+            startTransition = true;
+        }
     }
 
     IEnumerator FadeOut()
@@ -47,7 +52,6 @@ public class MapMarkerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger enter");
         if (collision.tag.Equals("Player"))
         {
             animator.SetBool("Touched", true);
