@@ -13,9 +13,15 @@ public class Monster: Creature
     public float scaredRange;
 
     public float distanceToPlayer;
+    public AudioSource audioSource;
+    public AudioClip takenDamage;
 
     public void ApplyEffects()
     {
+        if(spellEffects.Count > 0)
+        {
+            audioSource.PlayOneShot(takenDamage);
+        }
         // Apply effects
         int i = 0;
         while (i < spellEffects.Count)

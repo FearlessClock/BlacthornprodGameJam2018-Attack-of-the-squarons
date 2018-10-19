@@ -72,7 +72,10 @@ public class SpellContainer: MonoBehaviour {
     public void ReadCode(){
         foreach(Transform t in spellParent)
         {
-            Destroy(t.gameObject, 0.1f);
+            if (!t.CompareTag("Environment"))
+            {
+                Destroy(t.gameObject, 0.1f);
+            }
         }
         //Interpret the code written by the player
         currentSpellJson = spellInterpreter.InterpretScript(code.text);

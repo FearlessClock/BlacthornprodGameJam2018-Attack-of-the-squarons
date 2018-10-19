@@ -9,12 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d5751a2c961df945a34295ccf5e576d, type: 3}
-  m_Name: MonsterBrush
+  m_Name: GrassBrush
   m_EditorClassIdentifier: 
   m_Prefabs:
-  - {fileID: 1480880081164322, guid: ad71e492fefd011459f67b6acaa96b53, type: 2}
-  - {fileID: 1326347902451406, guid: e6fd49985852b30418e196beb8da26dd, type: 2}
-  - {fileID: 1326347902451406, guid: e6fd49985852b30418e196beb8da26dd, type: 2}
-  - {fileID: 1326347902451406, guid: e6fd49985852b30418e196beb8da26dd, type: 2}
+  - {fileID: 1640579369288594, guid: 26a1dd202bbe665438e13552befa0870, type: 2}
+  - {fileID: 1352802030266944, guid: f3324374794177c408779e61180bc514, type: 2}
+  - {fileID: 1352802030266944, guid: f3324374794177c408779e61180bc514, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_PerlinScale: 0.5
   m_Z: 0

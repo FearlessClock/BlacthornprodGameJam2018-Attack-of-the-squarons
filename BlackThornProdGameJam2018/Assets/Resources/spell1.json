@@ -4,17 +4,47 @@
             "shapesArray": [
                 {
                     "posX": 0.0,
+                    "posY": 0.0,
+                    "duration": 1.0,
+                    "size": 1.0,
+                    "manaCost": 1.5,
+                    "type": "circle",
+                    "elementalType": "ice",
+                    "damage": 1.0
+                }
+            ],
+            "phaseDuration": 1.0
+        },
+        {
+            "shapesArray": [
+                {
+                    "posX": 0.0,
                     "posY": 2.0,
                     "duration": 1.0,
                     "size": 1.0,
                     "manaCost": 1.899999976158142,
-                    "type": "circle",
-                    "elementalType": "ice",
+                    "type": "triangle",
+                    "elementalType": "fire",
+                    "damage": 1.0
+                }
+            ],
+            "phaseDuration": 1.0
+        },
+        {
+            "shapesArray": [
+                {
+                    "posX": 0.0,
+                    "posY": -2.0,
+                    "duration": 1.0,
+                    "size": 1.0,
+                    "manaCost": 1.899999976158142,
+                    "type": "square",
+                    "elementalType": "water",
                     "damage": 1.0
                 }
             ],
             "phaseDuration": 0.0
         }
     ],
-    "manaCost": 1.899999976158142
+    "manaCost": 5.300000190734863
 }
