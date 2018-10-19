@@ -11,16 +11,11 @@ public class MapMarkerController : MonoBehaviour {
     public Image fadeOutPanel;
     public FadeValues fadeValues;
     private bool startTransition;
-	// Use this for initialization
+
 	void Start () {
         cameraObj = Camera.main;
         animator = GetComponent<Animator>();
 	}
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void LaunchFadeOutAsCoRoutine()
     {
