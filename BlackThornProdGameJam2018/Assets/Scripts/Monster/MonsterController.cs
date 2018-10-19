@@ -145,7 +145,8 @@ public class MonsterController : Monster {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.gameObject.transform.parent.parent.GetComponent<SpellGenerator>().ownerTag.Equals(this.tag)){
+        SpellGenerator sg = collision.gameObject.transform.parent.parent.GetComponent<SpellGenerator>();
+        if (sg != null && !sg.ownerTag.Equals(this.tag)){
             //By using the inheritence of the shape classes, we can get the super class and get information from it.
             AddEffect(collision.gameObject.GetComponent<ShapeAbstractGenerator>().elementalType, collision.gameObject.GetInstanceID());
         }
@@ -153,7 +154,9 @@ public class MonsterController : Monster {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.gameObject.transform.parent.parent.GetComponent<SpellGenerator>().ownerTag.Equals(this.tag))
+        SpellGenerator sg = collision.gameObject.transform.parent.parent.GetComponent<SpellGenerator>();
+
+        if (sg != null && !sg.ownerTag.Equals(this.tag))
         {
             if (timeBTWEffectUpdates <= 0)
             {
