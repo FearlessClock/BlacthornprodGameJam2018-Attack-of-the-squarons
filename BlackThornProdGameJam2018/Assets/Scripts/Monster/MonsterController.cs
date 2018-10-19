@@ -21,21 +21,21 @@ public class MonsterController : Monster {
     public Rigidbody2D rigidbodyComp;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        CreatureSetup();
         rigidbodyComp = this.GetComponent<Rigidbody2D>();
-        MonsterSetup();
         timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
-        currentHp = maxHp;
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         UpdateMana();
         UpdateSpellCooldown();
         ApplyEffects();
         timeBTWEffectUpdates -= Time.deltaTime; // Time to update over time effects
     }
-
 
     public void AddEffect(ElementalType type, int shapeId)
     {

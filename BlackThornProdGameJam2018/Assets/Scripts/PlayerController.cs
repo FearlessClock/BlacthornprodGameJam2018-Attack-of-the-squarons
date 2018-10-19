@@ -13,6 +13,7 @@ public class PlayerController : Creature {
 
     private void Awake()
     {
+        CreatureSetup();
         rigBody = gameObject.GetComponent<Rigidbody2D>();
         currentMana = maxMana;
     }

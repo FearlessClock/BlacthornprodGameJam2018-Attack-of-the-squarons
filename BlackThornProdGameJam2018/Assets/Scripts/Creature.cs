@@ -17,6 +17,8 @@ public class Creature: MonoBehaviour
     public SpellJson spell2Settings;
     public Transform spellDirection;
 
+    public List<SpellEffect> spellEffects;
+
     public float maxHp;
     public float currentHp;
     public float maxMana;
@@ -28,12 +30,36 @@ public class Creature: MonoBehaviour
     
     public bool spellReady;
 
+    public GameObject healthBar;
+    public float initScaleXHB;
+
+    public GameObject manaBar;
+    public float initScaleXMB;
+
+    public void CreatureSetup()
+    {
+        currentHp = maxHp;
+        healthBar = transform.GetChild(1).GetChild(0).gameObject;
+        initScaleXHB = healthBar.transform.localScale.x;
+
+        currentMana = maxMana;
+        manaBar = transform.GetChild(1).GetChild(1).gameObject;
+        initScaleXMB = manaBar.transform.localScale.x;
+
+        spellEffects = new List<SpellEffect>();
+    }
+
     public void UpdateMana()
     {
-        if(currentMana + regenMana <= maxMana)
+        currentMana += regenMana * Time.deltaTime;
+        if(currentMana > maxMana)
         {
-            currentMana += regenMana * Time.deltaTime;
+            currentMana = maxMana;
         }
+        Vector3 temp = manaBar.transform.localScale;
+        temp.x = (currentMana / maxMana) * initScaleXMB;
+
+        manaBar.transform.localScale = temp;
     }
 
     public void UpdateSpellCooldown()
@@ -76,7 +102,10 @@ public class Creature: MonoBehaviour
                 spellScript.GenerateSpell(spellDirection);
 
                 spellScript.ownerTag = this.gameObject.tag;
-                currentMana -= currentSpell.manaCost;
+                currentMana -= currentSpell.manaCost; Vector3 temp = manaBar.transform.localScale;
+                temp.x = (currentMana / maxMana) * initScaleXMB;
+
+                manaBar.transform.localScale = temp;
                 spellReady = false;
                 spellTimer = spellCooldownTime;
             }

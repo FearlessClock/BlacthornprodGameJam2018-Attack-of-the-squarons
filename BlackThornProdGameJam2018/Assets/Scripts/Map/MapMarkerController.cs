@@ -31,7 +31,7 @@ public class MapMarkerController : MonoBehaviour {
         Vector3 target = this.transform.position;
         target.z = cameraObj.transform.position.z;
         float alpha = 0;
-        while (Camera.main.orthographicSize > 0)
+        while (Camera.main.orthographicSize > 0.2)
         {
             fadeOutPanel.color = new Color(0, 0, 0, alpha+= Time.deltaTime * fadeValues.panelFadeOutSpeed);
             cameraObj.orthographicSize -= fadeValues.fadeSpeed * Time.deltaTime;

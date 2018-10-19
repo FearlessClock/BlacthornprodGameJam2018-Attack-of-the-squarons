@@ -12,6 +12,8 @@ public class HQController : MonoBehaviour {
     public Image fadeOutPanel;
     private bool startTransition;
 
+    bool inZone = false;
+
     private void Start()
     {
         startTransition = false;
@@ -28,13 +30,12 @@ public class HQController : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             HQAnimator.SetTrigger("Effect");
+            inZone = true;
         }
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        
-        if (Input.GetButtonUp("Fire1") && !startTransition)
+        if (Input.GetButtonUp("Fire1") && !startTransition && inZone)
         {
             if (levelId < 0)
             {
@@ -65,6 +66,7 @@ public class HQController : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             HQAnimator.SetTrigger("Effect");
+            inZone = false;
         }
     }
 }

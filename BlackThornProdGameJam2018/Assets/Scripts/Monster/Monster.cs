@@ -7,26 +7,12 @@ using UnityEngine.UI;
 
 public class Monster: Creature
 {
-    public List<SpellEffect> spellEffects;
     //Enemy AI stats
     public float sightRange;
     public float attackRange;
     public float scaredRange;
 
-    private GameObject healthBar;
-    private float initScaleX;
-
     public float distanceToPlayer;
-
-    public void MonsterSetup()
-    {
-        healthBar = transform.GetChild(1).GetChild(0).gameObject;
-        initScaleX = healthBar.transform.localScale.x;
-        
-        spellEffects = new List<SpellEffect>();
-        currentHp = maxHp;
-        currentMana = maxMana;
-    }
 
     public void ApplyEffects()
     {
@@ -51,6 +37,7 @@ public class Monster: Creature
     {
         gameObject.GetComponent<Animator>().SetTrigger("kill");
     }
+    
     public void Damage(float damage)
     {
         currentHp -= damage;
@@ -61,7 +48,7 @@ public class Monster: Creature
         }
 
         Vector3 temp = healthBar.transform.localScale;
-        temp.x = (currentHp / maxHp) * initScaleX;
+        temp.x = (currentHp / maxHp) * initScaleXHB;
 
         healthBar.transform.localScale = temp;
     }
