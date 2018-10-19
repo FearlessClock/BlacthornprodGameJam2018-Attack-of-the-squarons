@@ -11,6 +11,7 @@ public class Monster: Creature
     //Enemy AI stats
     public float sightRange;
     public float attackRange;
+    public float scaredRange;
 
     private GameObject healthBar;
     private float initScaleX;
@@ -23,8 +24,8 @@ public class Monster: Creature
         initScaleX = healthBar.transform.localScale.x;
         
         spellEffects = new List<SpellEffect>();
-        Debug.Log("Spell effects " + spellEffects.Count);
         currentHp = maxHp;
+        currentMana = maxMana;
     }
 
     public void ApplyEffects()

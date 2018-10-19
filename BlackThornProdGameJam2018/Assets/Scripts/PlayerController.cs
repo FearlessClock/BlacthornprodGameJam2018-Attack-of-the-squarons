@@ -14,9 +14,13 @@ public class PlayerController : Creature {
     private void Awake()
     {
         rigBody = gameObject.GetComponent<Rigidbody2D>();
+        currentMana = maxMana;
     }
 
-    void FixedUpdate () {
+    void FixedUpdate ()
+    {
+        UpdateMana();
+        UpdateSpellCooldown();
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
         Quaternion rotation = new Quaternion();
@@ -55,7 +59,11 @@ public class PlayerController : Creature {
 
         if(Input.GetButtonUp("Fire1"))
         {
-            LaunchSpell();
+            LaunchSpell(0);
+        }
+        else if (Input.GetButtonUp("Fire2"))
+        {
+            LaunchSpell(1);
         }
 	}
 }

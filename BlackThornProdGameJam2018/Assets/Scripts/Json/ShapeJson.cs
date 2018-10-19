@@ -6,14 +6,14 @@ using System;
 [Serializable]
 public class ShapeJson {
 
-	public int posX;
-	public int posY;
+	public float posX;
+	public float posY;
 
     public float duration;
 
-    public int size;
+    public float size;
 
-    public int manaCost;
+    public float manaCost;
 
 	public string type;
 

@@ -31,4 +31,14 @@ public class PhaseJson {
 
         return res;
     }
+
+    public float GetManaCost()
+    {
+        float manaCost = 0;
+        foreach (ShapeJson shape in shapesArray)
+        {
+            manaCost += shape.manaCost;
+        }
+        return manaCost;
+    }
 }

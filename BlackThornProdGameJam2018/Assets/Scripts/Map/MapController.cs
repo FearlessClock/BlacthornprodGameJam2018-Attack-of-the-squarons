@@ -12,19 +12,5 @@ public class MapController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.S))
-        {
-            if(mapPosition + 1 < mapPoints.Length)
-            {
-                mapPosition += 1;
-            }
-        }
-        else if (Input.GetKey(KeyCode.W))
-        {
-            if (mapPosition - 1 >= 0)
-            {
-                mapPosition -= 1;
-            }
-        }
 	}
 }

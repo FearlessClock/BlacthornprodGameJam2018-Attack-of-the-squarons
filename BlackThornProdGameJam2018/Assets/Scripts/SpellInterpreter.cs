@@ -3,11 +3,23 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 
 public class SpellInterpreter : MonoBehaviour {
 
     string[] functions;
+
+    public float distanceWeight;
+    public float maxDistance;
+    public float sizeWeight;
+    public float maxSize;
+    public float damageWeight;
+    public float maxDamage;
+    public float durationWeight;
+    public float maxDuration;
+
+    public TextMeshProUGUI consoleText;
 
     public string delayName = "delay";
     Dictionary<string, ShapeType> shapeDict;
@@ -32,6 +44,7 @@ public class SpellInterpreter : MonoBehaviour {
         SpellJson spellJson = new SpellJson();
         
         string[] sepCode = null;
+        code = code.Replace("\n", "");
         sepCode = code.Split(';');
         PhaseJson currentPhase = new PhaseJson();
         for (int j = 0; j < sepCode.Length - 1; j++)  //-1 because the line after the ; is counted with
@@ -39,12 +52,12 @@ public class SpellInterpreter : MonoBehaviour {
             string tillParan = sepCode[j].Split('(')[0].ToLower();
             string paramsValues = sepCode[j].Split('(')[1].Replace(")", "");
             string[] paramsFunc = paramsValues.Split(',');
+            bool foundFunction = false;
             for (int i = 0; i < functions.Length; i++)
             {
                 if (tillParan.Length == functions[i].Length)
                 {
                     if(tillParan.Equals(delayName)){
-                        Debug.Log("End a phase");
                         currentPhase.phaseDuration = (float)Convert.ToDouble(paramsFunc[0]);
                         currentPhase.FinishShapeAdding();
                         spellJson.AddPhase(currentPhase);
@@ -57,14 +70,21 @@ public class SpellInterpreter : MonoBehaviour {
                                 shapeDict.TryGetValue(tillParan, out shapeType);
 
                                 currentPhase.AddShape(CreateShape(shapeType, paramsFunc));
+                                foundFunction = true;
                             }
                             catch (ArgumentException)
                             {
+                                LogToConsole(tillParan + " doesn't exist");
                                 Debug.Log("Doesn't exist");
                                 throw;
                             }
                     }
                 }
+            }
+            if (!foundFunction)
+            {
+                LogToConsole("The " + tillParan + " function doesn't exist");
+                Debug.Log("The "+ tillParan +" function doesn't exist");
             }
         }
         if(currentPhase.shapes.Count > 0){
@@ -72,7 +92,11 @@ public class SpellInterpreter : MonoBehaviour {
             currentPhase.FinishShapeAdding();
             spellJson.AddPhase(currentPhase);
         }
-        spellJson.finishPhaseAdding(); 
+        spellJson.finishPhaseAdding();
+        foreach (PhaseJson phase in spellJson.phasesArray)
+        {
+            spellJson.manaCost += phase.GetManaCost();
+        }
         return spellJson;
     }
 
@@ -109,10 +133,17 @@ public class SpellInterpreter : MonoBehaviour {
         {
             shape = AddShape(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]), Convert.ToInt32(funcParams[4]), funcParams[5], type);
         }
+        else if(funcParams.Length > 6)
+        {
+            shape = null;
+            LogToConsole("There are only 6 parameters");
+            Debug.Log("There are only 6 parameters");
+        }
         else
         {
             shape = null;
-            Debug.Log("There are only 6 parameters");
+            LogToConsole("There are 6 parameters");
+            Debug.Log("There are 6 parameters");
         }
         return shape;
     }
@@ -121,15 +152,28 @@ public class SpellInterpreter : MonoBehaviour {
     ShapeJson AddShape(int x, int y, int damage, int duration, int size, string damageType, string type)
     {
         ShapeJson shapeJson = new ShapeJson();
-        shapeJson.posX = x;
-        shapeJson.posY = y;
-        shapeJson.damage = damage;
-        shapeJson.size = size;
-        shapeJson.duration = duration;
+        Vector2 spellPos = new Vector2(x, y);
+        if(spellPos.magnitude > maxDistance)
+        {
+            spellPos = spellPos.normalized * maxDistance;
+        }
+        shapeJson.posX = spellPos.x;
+        shapeJson.posY = spellPos.y;
+        shapeJson.damage = damage < maxDamage? damage : maxDamage;
+        shapeJson.size = size < maxSize? size: maxSize;
+        shapeJson.duration = duration < maxDuration? duration: maxDuration;
         shapeJson.elementalType = damageType;
         //get an equation that will give us the manacost in function of the damage, position, size and duration
-        shapeJson.manaCost = 2;
+        shapeJson.manaCost = distanceWeight * (spellPos.magnitude/maxDistance) + 
+                                durationWeight * (shapeJson.duration /maxDuration) + 
+                                    sizeWeight * (shapeJson.size /maxSize) + 
+                                        damageWeight * (shapeJson.damage / maxDamage);
         shapeJson.type = type;
         return shapeJson;
+    }
+
+    public void LogToConsole(string log)
+    {
+        consoleText.text = "> " + log + "\n"+consoleText.text;
     }
 }

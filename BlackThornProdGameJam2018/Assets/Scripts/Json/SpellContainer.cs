@@ -29,7 +29,8 @@ public class HandleTextFile
 
 public class SpellContainer: MonoBehaviour {
 
-    public string spellBookLocation;
+    public string spellBookLocation1;
+    public string spellBookLocation2;
 
     SpellJson spellSettings;
 
@@ -42,15 +43,31 @@ public class SpellContainer: MonoBehaviour {
 
     SpellGenerator currentSpell;
     SpellJson currentSpellJson;
+    
+    public Toggle spell1;
+    public Toggle spell2;
 
     private void Start() {
-        string spellsText = HandleTextFile.ReadString(spellBookLocation);
+        string spellsText = HandleTextFile.ReadString(spellBookLocation1);
+        string spellsText2 = HandleTextFile.ReadString(spellBookLocation2);
         spellSettings = JsonUtility.FromJson<SpellJson>(spellsText);
 
         if (creature != null){
-            creature.spellSettings = spellSettings;
+            creature.spell1Settings = spellSettings;
+        }
+        spellSettings = JsonUtility.FromJson<SpellJson>(spellsText2);
+
+        if (creature != null)
+        {
+            creature.spell2Settings = spellSettings;
         }
     }
+
+    public void OnToggleChangedSpell1()
+    {
+
+    }
+    
 
     public void ReadCode(){
         foreach(Transform t in spellParent)
@@ -58,8 +75,7 @@ public class SpellContainer: MonoBehaviour {
             Destroy(t.gameObject, 0.1f);
         }
         //Interpret the code written by the player
-        currentSpellJson = spellInterpreter.InterpretScript(code.text); 
-        Debug.Log(JsonUtility.ToJson(currentSpellJson, true));
+        currentSpellJson = spellInterpreter.InterpretScript(code.text);
         //Turn the json into an actaul spell
         GameObject spellObj = Instantiate<GameObject>(creature.spellGenerator);
         spellObj.transform.parent = spellParent;
@@ -71,11 +87,20 @@ public class SpellContainer: MonoBehaviour {
 
     public void saveCode()
     {
-        HandleTextFile.WriteString(spellBookLocation, JsonUtility.ToJson(currentSpellJson, true));
+        if (spell1.isOn)
+        {
+            HandleTextFile.WriteString(spellBookLocation1, JsonUtility.ToJson(currentSpellJson, true));
+        }
+        if (spell2.isOn)
+        {
+            HandleTextFile.WriteString(spellBookLocation2, JsonUtility.ToJson(currentSpellJson, true));
+        }
     }
 
     public void Destroy()
     {
         Destroy(gameObject);
     }
+
+    
 }

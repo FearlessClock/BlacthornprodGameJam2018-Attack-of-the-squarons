@@ -7,10 +7,13 @@ public class AttackBehaviour : StateMachineBehaviour {
     private GameObject player;
     private MonsterController monster;
 
+    private int direction;
+
     private bool spawnOne = false;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        direction = Random.Range(-1f, 1f) > 0 ? 1 : -1;
         player = GameObject.FindObjectOfType<PlayerController>().gameObject;
         monster = animator.transform.gameObject.GetComponent<MonsterController>();
     }
@@ -19,24 +22,20 @@ public class AttackBehaviour : StateMachineBehaviour {
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float disToPlayer = Vector3.Distance(player.transform.position, animator.transform.position);
-        //Debug.Log("Attack: " + disToPlayer);
-        if (disToPlayer > 2)
+        //Debug.Log("STATE: Attack " + disToPlayer);
+        if (disToPlayer <= monster.scaredRange || disToPlayer > monster.attackRange)
         {
             animator.SetTrigger("WalkTo");
         }
         else if (disToPlayer < monster.attackRange)
         {
-            if (!spawnOne)
-            {
-                GameObject spellObj = Instantiate<GameObject>(monster.spellGenerator);
+            Vector3 aimAtPlayer = (monster.transform.position - player.transform.position).normalized;
+            Vector3 strafeDirection = new Vector3(direction * aimAtPlayer.y, -direction * aimAtPlayer.x);
+            monster.rigidbodyComp.MovePosition(monster.transform.position + strafeDirection * Time.deltaTime * monster.movementSpeed);
 
-                spellObj.transform.parent = monster.Spells;
-
-                SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
-                spellScript.spellSettings = monster.spellSettings;
-                spellScript.GenerateSpell(monster.transform);
-                spawnOne = true;
-            }
+            float angle = -Mathf.Atan2(aimAtPlayer.x, aimAtPlayer.y);
+            monster.spellDirection.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
+            monster.LaunchSpell(0);
         }
     }
 

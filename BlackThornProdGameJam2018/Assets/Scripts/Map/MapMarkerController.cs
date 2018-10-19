@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MapMarkerController : MonoBehaviour {
     private Animator animator;
-    public float fadeTime;
-    public float fadeSpeed;
     public int levelID;
     private Camera cameraObj;
+    public Image fadeOutPanel;
+    public FadeValues fadeValues;
+    private bool startTransition;
 	// Use this for initialization
 	void Start () {
         cameraObj = Camera.main;
@@ -22,29 +24,34 @@ public class MapMarkerController : MonoBehaviour {
 
     public void LaunchFadeOutAsCoRoutine()
     {
-        StartCoroutine("FadeOut");
+        if (!startTransition)
+        {
+            StartCoroutine("FadeOut");
+            startTransition = true;
+        }
     }
 
     IEnumerator FadeOut()
     {
         Vector3 target = this.transform.position;
         target.z = cameraObj.transform.position.z;
+        float alpha = 0;
         while (Camera.main.orthographicSize > 0)
         {
-            cameraObj.orthographicSize -= fadeSpeed * Time.deltaTime;
+            fadeOutPanel.color = new Color(0, 0, 0, alpha+= Time.deltaTime * fadeValues.panelFadeOutSpeed);
+            cameraObj.orthographicSize -= fadeValues.fadeSpeed * Time.deltaTime;
             cameraObj.transform.position = Vector3.Lerp(cameraObj.transform.position, target, 0.2f);
-            if (Camera.main.orthographicSize < 0.05f)
+            if (Camera.main.orthographicSize < 0.1f)
             {
                 Camera.main.orthographicSize = 0;
             }
-            yield return new WaitForSeconds(fadeTime);
+            yield return new WaitForSeconds(fadeValues.fadeTime);
         }
         SceneManager.LoadScene(levelID);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger enter");
         if (collision.tag.Equals("Player"))
         {
             animator.SetBool("Touched", true);

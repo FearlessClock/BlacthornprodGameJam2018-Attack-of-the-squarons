@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/HQ.unity
+    guid: 02e13060085fa004abf9b4f222f0e126
+  - enabled: 1
+    path: Assets/Scenes/Magic Map.unity
+    guid: 43ecb1018b69fe24baf4f087f4849648
+  - enabled: 1
+    path: Assets/Scenes/Spell Creator.unity
+    guid: f5142e39f0bde6343a7dc19ced4270dd
+  - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 7812c51560132cb4590f7826dd94ad97
+  - enabled: 1
+    path: Assets/Scenes/EnemyAI.unity
+    guid: 4832d42375c88704eb2a544bc902913b
+  - enabled: 1
+    path: Assets/Scenes/Player.unity
+    guid: 773e55392a6625849bda8e63f58c0403
   m_configObjects: {}
