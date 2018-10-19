@@ -24,7 +24,6 @@ public class Monster: Creature
         initScaleX = healthBar.transform.localScale.x;
         
         spellEffects = new List<SpellEffect>();
-        Debug.Log("Spell effects " + spellEffects.Count);
         currentHp = maxHp;
         currentMana = maxMana;
     }

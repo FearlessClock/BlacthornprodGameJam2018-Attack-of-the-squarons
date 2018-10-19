@@ -35,7 +35,7 @@ public class AttackBehaviour : StateMachineBehaviour {
 
             float angle = -Mathf.Atan2(aimAtPlayer.x, aimAtPlayer.y);
             monster.spellDirection.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
-            monster.LaunchSpell();
+            monster.LaunchSpell(0);
         }
     }
 

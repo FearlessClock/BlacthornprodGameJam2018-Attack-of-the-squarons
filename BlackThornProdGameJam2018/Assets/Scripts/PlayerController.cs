@@ -59,7 +59,11 @@ public class PlayerController : Creature {
 
         if(Input.GetButtonUp("Fire1"))
         {
-            LaunchSpell();
+            LaunchSpell(0);
+        }
+        else if (Input.GetButtonUp("Fire2"))
+        {
+            LaunchSpell(1);
         }
 	}
 }

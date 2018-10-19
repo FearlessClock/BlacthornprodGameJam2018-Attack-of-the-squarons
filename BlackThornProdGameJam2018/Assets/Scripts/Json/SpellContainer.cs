@@ -53,7 +53,13 @@ public class SpellContainer: MonoBehaviour {
         spellSettings = JsonUtility.FromJson<SpellJson>(spellsText);
 
         if (creature != null){
-            creature.spellSettings = spellSettings;
+            creature.spell1Settings = spellSettings;
+        }
+        spellSettings = JsonUtility.FromJson<SpellJson>(spellsText2);
+
+        if (creature != null)
+        {
+            creature.spell2Settings = spellSettings;
         }
     }
 

@@ -505,6 +505,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114919171157344604, guid: 8b0e1629fe0f12446b94c5907510413c,
+        type: 2}
+      propertyPath: spellCooldownTime
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114919171157344604, guid: 8b0e1629fe0f12446b94c5907510413c,
+        type: 2}
+      propertyPath: regenMana
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114919171157344604, guid: 8b0e1629fe0f12446b94c5907510413c,
+        type: 2}
+      propertyPath: spellReady
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114919171157344604, guid: 8b0e1629fe0f12446b94c5907510413c,
+        type: 2}
+      propertyPath: Spells
+      value: 
+      objectReference: {fileID: 1190272031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0e1629fe0f12446b94c5907510413c, type: 2}
   m_IsPrefabAsset: 0

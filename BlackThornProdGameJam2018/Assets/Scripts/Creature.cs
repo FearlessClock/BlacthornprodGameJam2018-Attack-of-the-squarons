@@ -13,7 +13,8 @@ public class Creature: MonoBehaviour
     public float movementSpeed;
     public Transform Spells;
     public GameObject spellGenerator;
-    public SpellJson spellSettings;
+    public SpellJson spell1Settings;
+    public SpellJson spell2Settings;
     public Transform spellDirection;
 
     public float maxHp;
@@ -47,22 +48,35 @@ public class Creature: MonoBehaviour
         }
     }
 
-    public void LaunchSpell()
+    public void LaunchSpell(int nmbr)
     {
+        SpellJson currentSpell;
         if(spellGenerator != null)
         {
-            if(currentMana >= spellSettings.manaCost && spellReady)
+            switch (nmbr)
+            {
+                case 0:
+                    currentSpell = spell1Settings;
+                    break;
+                case 1:
+                    currentSpell = spell2Settings;
+                    break;
+                default:
+                    currentSpell = null;
+                    break;
+            }
+            if(currentMana >= currentSpell.manaCost && spellReady)
             {
                 GameObject spellObj = Instantiate<GameObject>(spellGenerator);
 
                 spellObj.transform.parent = Spells;
 
                 SpellGenerator spellScript = spellObj.GetComponent<SpellGenerator>();
-                spellScript.spellSettings = spellSettings;
+                spellScript.spellSettings = currentSpell;
                 spellScript.GenerateSpell(spellDirection);
 
                 spellScript.ownerTag = this.gameObject.tag;
-                currentMana -= spellSettings.manaCost;
+                currentMana -= currentSpell.manaCost;
                 spellReady = false;
                 spellTimer = spellCooldownTime;
             }

@@ -146,33 +146,25 @@ public class MonsterController : Monster {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!collision.gameObject.transform.parent.parent.GetComponent<SpellGenerator>().ownerTag.Equals(this.tag)){
-            switch(collision.tag)
-            {
-                case "CircleSpell":
-                    AddEffect(collision.gameObject.GetComponent<CircleGenerator>().elementalType, collision.gameObject.GetInstanceID());
-                    break;
-                case "SquareSpell":
-                    Debug.Log("" + collision.gameObject.GetComponent<SquareGenerator>() == null);
-                    AddEffect(collision.gameObject.GetComponent<SquareGenerator>().elementalType, collision.gameObject.GetInstanceID());
-                    break;
-                case "TriangleSpell":
-                    AddEffect(collision.gameObject.GetComponent<TriangleGenerator>().elementalType, collision.gameObject.GetInstanceID());
-                    break;
-            }
+            //By using the inheritence of the shape classes, we can get the super class and get information from it.
+            AddEffect(collision.gameObject.GetComponent<ShapeAbstractGenerator>().elementalType, collision.gameObject.GetInstanceID());
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(timeBTWEffectUpdates <= 0)
+        if (!collision.gameObject.transform.parent.parent.GetComponent<SpellGenerator>().ownerTag.Equals(this.tag))
         {
-            switch (collision.tag)
+            if (timeBTWEffectUpdates <= 0)
             {
-                case "SpellShape":
-                    EffectUpdateWithinShapeArea(collision.gameObject.GetInstanceID());
-                    break;
+                switch (collision.tag)
+                {
+                    case "SpellShape":
+                        EffectUpdateWithinShapeArea(collision.gameObject.GetInstanceID());
+                        break;
+                }
+                timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
             }
-            timeBTWEffectUpdates = MaxTimeBTWEffectUpdates;
         }
     }
 
