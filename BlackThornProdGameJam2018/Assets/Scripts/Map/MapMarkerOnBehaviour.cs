@@ -6,13 +6,12 @@ using UnityEngine.SceneManagement;
 public class MapMarkerOnBehaviour : StateMachineBehaviour {
     
     private MapMarkerController marker;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         marker = animator.gameObject.GetComponent<MapMarkerController>();
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (Input.GetButtonUp("Fire1"))
