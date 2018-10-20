@@ -32,7 +32,8 @@ public class SpellContainer: MonoBehaviour {
     public string spellBookLocation1;
     public string spellBookLocation2;
 
-    SpellJson spellSettings;
+    SpellJson spell1Settings;
+    SpellJson spell2Settings;
 
     public TextMeshProUGUI code;
     public TMP_InputField codeSetter;
@@ -51,27 +52,45 @@ public class SpellContainer: MonoBehaviour {
     private void Start() {
         string spellsText = HandleTextFile.ReadString(spellBookLocation1);
         string spellsText2 = HandleTextFile.ReadString(spellBookLocation2);
-        spellSettings = JsonUtility.FromJson<SpellJson>(spellsText);
+        spell1Settings = JsonUtility.FromJson<SpellJson>(spellsText);
 
         if (creature != null){
-            creature.spell1Settings = spellSettings;
+            creature.spell1Settings = spell1Settings;
         }
         if (spell1 != null && spell1.isOn)
         {
-            codeSetter.text = (spellSettings.code);
+            codeSetter.text = (spell1Settings.code);
         }
-        spellSettings = JsonUtility.FromJson<SpellJson>(spellsText2);
+        spell2Settings = JsonUtility.FromJson<SpellJson>(spellsText2);
 
         if (creature != null)
         {
-            creature.spell2Settings = spellSettings;
+            creature.spell2Settings = spell2Settings;
         }
+
+        spell1.onValueChanged.AddListener(delegate {
+            OnToggleChangedSpell1();
+        });
+        spell2.onValueChanged.AddListener(delegate {
+            OnToggleChangedSpell1();
+        });
 
     }
 
     public void OnToggleChangedSpell1()
     {
-
+        Debug.Log(spell1.isOn + " " + spell2.isOn);
+        if (spell1.isOn && !spell2.isOn)
+        {
+            codeSetter.text = (spell1Settings.code);
+        }else if (!spell1.isOn && spell2.isOn)
+        {
+            codeSetter.text = (spell2Settings.code);
+        }
+        else if (spell1.isOn && spell2.isOn)
+        {
+            codeSetter.text = "";
+        }
     }
     
 
@@ -96,12 +115,18 @@ public class SpellContainer: MonoBehaviour {
 
     public void saveCode()
     {
+        if(currentSpellJson == null)
+        {
+            ReadCode();
+        }
         if (spell1.isOn)
         {
+            spell1Settings = currentSpellJson;
             HandleTextFile.WriteString(spellBookLocation1, JsonUtility.ToJson(currentSpellJson, true));
         }
         if (spell2.isOn)
         {
+            spell2Settings = currentSpellJson;
             HandleTextFile.WriteString(spellBookLocation2, JsonUtility.ToJson(currentSpellJson, true));
         }
     }

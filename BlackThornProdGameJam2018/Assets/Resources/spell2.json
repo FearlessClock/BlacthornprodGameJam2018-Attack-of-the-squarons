@@ -4,26 +4,11 @@
             "shapesArray": [
                 {
                     "posX": 0.0,
-                    "posY": 0.0,
+                    "posY": 1.0,
                     "duration": 1.0,
                     "size": 1.0,
-                    "manaCost": 1.5,
-                    "type": "triangle",
-                    "elementalType": "ice",
-                    "damage": 1.0
-                }
-            ],
-            "phaseDuration": 1.0
-        },
-        {
-            "shapesArray": [
-                {
-                    "posX": 0.0,
-                    "posY": 0.0,
-                    "duration": 1.0,
-                    "size": 1.0,
-                    "manaCost": 1.5,
-                    "type": "triangle",
+                    "manaCost": 1.7000000476837159,
+                    "type": "circle",
                     "elementalType": "ice",
                     "damage": 1.0
                 }
@@ -31,5 +16,6 @@
             "phaseDuration": 0.0
         }
     ],
-    "manaCost": 3.0
+    "manaCost": 1.7000000476837159,
+    "code": "circle(0,1,1,1,1,ice);​​"
 }
