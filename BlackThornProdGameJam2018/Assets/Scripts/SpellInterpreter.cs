@@ -136,7 +136,7 @@ public class SpellInterpreter : MonoBehaviour {
         {
             try
             {
-                shape = AddShape(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]), Convert.ToInt32(funcParams[4]), funcParams[5], type);
+                shape = AddShape(Convert.ToDouble(funcParams[0]), Convert.ToDouble(funcParams[1]), Convert.ToDouble(funcParams[2]), Convert.ToDouble(funcParams[3]), Convert.ToDouble(funcParams[4]), funcParams[5], type);
             }
             catch (FormatException)
             {
@@ -160,19 +160,19 @@ public class SpellInterpreter : MonoBehaviour {
     }
 
     //x, y, damage, duration, size, damageType
-    ShapeJson AddShape(int x, int y, int damage, int duration, int size, string damageType, string type)
+    ShapeJson AddShape(double x, double y, double damage, double duration, double size, string damageType, string type)
     {
         ShapeJson shapeJson = new ShapeJson();
-        Vector2 spellPos = new Vector2(x, y);
+        Vector2 spellPos = new Vector2((float)x, (float)y);
         if(spellPos.magnitude > maxDistance)
         {
             spellPos = spellPos.normalized * maxDistance;
         }
         shapeJson.posX = spellPos.x;
         shapeJson.posY = spellPos.y;
-        shapeJson.damage = damage < maxDamage? damage : maxDamage;
-        shapeJson.size = size < maxSize? size: maxSize;
-        shapeJson.duration = duration < maxDuration? duration: maxDuration;
+        shapeJson.damage = damage < maxDamage? (float)damage : maxDamage;
+        shapeJson.size = size < maxSize? (float)size : maxSize;
+        shapeJson.duration = duration < maxDuration? (float)duration : maxDuration;
         shapeJson.elementalType = damageType;
         //get an equation that will give us the manacost in function of the damage, position, size and duration
         shapeJson.manaCost = distanceWeight * (spellPos.magnitude/maxDistance) + 
