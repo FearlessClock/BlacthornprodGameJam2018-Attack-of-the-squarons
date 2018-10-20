@@ -1,1 +1,1 @@
-public enum ElementalType  {normal, fire, water, ice, earth, death, poison, lightning}
+public enum ElementalType  {fire, ice, earth, death, poison}

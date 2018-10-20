@@ -10,16 +10,23 @@ public class LineGenerator : ShapeAbstractGenerator {
             switch (shapeSettings.elementalType)
             {
                 case "fire":
-                  elementalType = ElementalType.fire;
-                  break;
-                case "water":
-                  elementalType = ElementalType.water;
-                  break;
+                    elementalType = ElementalType.fire;
+                    break;
+                case "ice":
+                    elementalType = ElementalType.ice;
+                    break;
+                case "earth":
+                    elementalType = ElementalType.earth;
+                    break;
+                case "death":
+                    elementalType = ElementalType.death;
+                    break;
+                case "poison":
+                    elementalType = ElementalType.poison;
+                    break;
                 default:
-                  elementalType = ElementalType.normal;
-                  break;
+                    elementalType = ElementalType.fire;
+                    break;
             }
-      }
-
-      
+       }
 }
