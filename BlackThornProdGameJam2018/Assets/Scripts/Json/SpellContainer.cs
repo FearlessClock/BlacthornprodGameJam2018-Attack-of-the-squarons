@@ -125,11 +125,13 @@ public class SpellContainer: MonoBehaviour {
         {
             spell1Settings = currentSpellJson;
             HandleTextFile.WriteString(spellBookLocation1, JsonUtility.ToJson(currentSpellJson, true));
+            spellInterpreter.LogToConsole("Spell saved to slot 1");
         }
         if (spell2.isOn)
         {
             spell2Settings = currentSpellJson;
             HandleTextFile.WriteString(spellBookLocation2, JsonUtility.ToJson(currentSpellJson, true));
+            spellInterpreter.LogToConsole("Spell saved to slot 2");
         }
     }
 
