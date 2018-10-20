@@ -6414,6 +6414,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 82053364506081914, guid: a9ac48b54a9391f4b9d841584f246a69,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 00ce9b5ac684ca8498ac79d1d41c05cf, type: 3}
+    - target: {fileID: 82053364506081914, guid: a9ac48b54a9391f4b9d841584f246a69,
+        type: 2}
+      propertyPath: Priority
+      value: 109
+      objectReference: {fileID: 0}
+    - target: {fileID: 82053364506081914, guid: a9ac48b54a9391f4b9d841584f246a69,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.421
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ac48b54a9391f4b9d841584f246a69, type: 2}
   m_IsPrefabAsset: 0
@@ -13360,7 +13375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &629023778
 MonoBehaviour:
   m_ObjectHideFlags: 0
