@@ -4,18 +4,28 @@
             "shapesArray": [
                 {
                     "posX": 0.0,
-                    "posY": 2.0,
+                    "posY": 0.0,
                     "duration": 1.0,
                     "size": 0.5,
-                    "manaCost": 1.7333333492279053,
-                    "type": "triangle",
+                    "manaCost": 1.3333333730697632,
+                    "type": "circle",
                     "elementalType": "fire",
+                    "damage": 1.0
+                },
+                {
+                    "posX": 0.0,
+                    "posY": 1.0,
+                    "duration": 1.0,
+                    "size": 0.5,
+                    "manaCost": 1.5333333015441895,
+                    "type": "square",
+                    "elementalType": "death",
                     "damage": 1.0
                 }
             ],
             "phaseDuration": 0.0
         }
     ],
-    "manaCost": 1.7333333492279053,
-    "code": "triangle(0,2,1,1,0.5,fire);​​​"
+    "manaCost": 2.866666793823242,
+    "code": "circle(0,0,1,1,0.5,fire);\nsquare(0,1,1,1,0.5,death);​​"
 }
