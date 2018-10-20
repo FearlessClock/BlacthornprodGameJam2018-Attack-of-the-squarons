@@ -22,6 +22,7 @@ public class PlayerController : Creature {
     {
         UpdateMana();
         UpdateSpellCooldown();
+        ApplyEffects();
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
         Quaternion rotation = new Quaternion();
