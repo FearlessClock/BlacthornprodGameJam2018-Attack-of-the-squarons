@@ -13,49 +13,5 @@ public class Monster: Creature
     public float scaredRange;
 
     public float distanceToPlayer;
-    public AudioSource audioSource;
-    public AudioClip takenDamage;
 
-    public void ApplyEffects()
-    {
-        if(spellEffects.Count > 0)
-        {
-            audioSource.PlayOneShot(takenDamage);
-        }
-        // Apply effects
-        int i = 0;
-        while (i < spellEffects.Count)
-        {
-            SpellEffect effect = spellEffects[i];
-            effect.ApplyEffect();
-            if (effect.effectFinished == true)
-            {
-                spellEffects.RemoveAt(i);
-            }
-            else
-            {
-                i++;
-            }
-        }
-    }
-
-    public void Kill()
-    {
-        gameObject.GetComponent<Animator>().SetTrigger("kill");
-    }
-    
-    public void Damage(float damage)
-    {
-        currentHp -= damage;
-        if (currentHp <= 0)
-        {
-            currentHp = 0;
-            Kill();
-        }
-
-        Vector3 temp = healthBar.transform.localScale;
-        temp.x = (currentHp / maxHp) * initScaleXHB;
-
-        healthBar.transform.localScale = temp;
-    }
 }

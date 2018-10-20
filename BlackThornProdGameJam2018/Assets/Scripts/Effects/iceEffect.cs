@@ -32,7 +32,7 @@ public class IceEffect : SpellEffect {
         damInShapeCurTime -= Time.deltaTime;
         if (damInShapeCurTime <= 0)
         {
-            monster.GetComponent<MonsterController>().Damage(damInShape);
+            monster.GetComponent<Creature>().Damage(damInShape);
             damInShapeCurTime = damInShapeProcTime;
         }
 
