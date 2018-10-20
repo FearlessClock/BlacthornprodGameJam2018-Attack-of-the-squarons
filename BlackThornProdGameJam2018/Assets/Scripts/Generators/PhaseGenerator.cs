@@ -5,9 +5,9 @@ using UnityEngine;
 public class PhaseGenerator : MonoBehaviour {
     public PhaseJson phaseSettings;
 
-    public GameObject circlePrefab;
-    public GameObject squarePrefab;
-    public GameObject trianglePrefab;
+    public GameObject[] circlePrefab;
+    public GameObject[] squarePrefab;
+    public GameObject[] trianglePrefab;
 
     public float time;
 
@@ -35,17 +35,68 @@ public class PhaseGenerator : MonoBehaviour {
             switch (phaseSettings.shapesArray[i].type)
             {
                 case "circle":
-                    shape = Instantiate<GameObject>(circlePrefab);
+                    switch(phaseSettings.shapesArray[i].elementalType)
+                    {
+                        case "fire":
+                            shape = Instantiate<GameObject>(circlePrefab[0]);
+                            break;
+                        case "ice":
+                            shape = Instantiate<GameObject>(circlePrefab[1]);
+                            break;
+                        case "earth":
+                            shape = Instantiate<GameObject>(circlePrefab[2]);
+                            break;
+                        case "death":
+                            shape = Instantiate<GameObject>(circlePrefab[3]);
+                            break;
+                        case "poison":
+                            shape = Instantiate<GameObject>(circlePrefab[4]);
+                            break;
+                    }
                     break;
                 case "square":
-                    shape = Instantiate<GameObject>(squarePrefab, new Vector3(phaseSettings.shapesArray[i].posX, phaseSettings.shapesArray[i].posY), Quaternion.identity);
+                    switch (phaseSettings.shapesArray[i].elementalType)
+                    {
+                        case "fire":
+                            shape = Instantiate<GameObject>(squarePrefab[0]);
+                            break;
+                        case "ice":
+                            shape = Instantiate<GameObject>(squarePrefab[1]);
+                            break;
+                        case "earth":
+                            shape = Instantiate<GameObject>(squarePrefab[2]);
+                            break;
+                        case "death":
+                            shape = Instantiate<GameObject>(squarePrefab[3]);
+                            break;
+                        case "poison":
+                            shape = Instantiate<GameObject>(squarePrefab[4]);
+                            break;
+                    }
                     break;
                 case "triangle":
-                    shape = Instantiate<GameObject>(trianglePrefab, new Vector3(phaseSettings.shapesArray[i].posX, phaseSettings.shapesArray[i].posY), Quaternion.identity);
+                    switch (phaseSettings.shapesArray[i].elementalType)
+                    {
+                        case "fire":
+                            shape = Instantiate<GameObject>(trianglePrefab[0]);
+                            break;
+                        case "ice":
+                            shape = Instantiate<GameObject>(trianglePrefab[1]);
+                            break;
+                        case "earth":
+                            shape = Instantiate<GameObject>(trianglePrefab[2]);
+                            break;
+                        case "death":
+                            shape = Instantiate<GameObject>(trianglePrefab[3]);
+                            break;
+                        case "poison":
+                            shape = Instantiate<GameObject>(trianglePrefab[4]);
+                            break;
+                    }
                     break;
                 default:
                     Debug.Log(phaseSettings.shapesArray[i].type);
-                    shape = Instantiate<GameObject>(squarePrefab);
+                    shape = Instantiate<GameObject>(squarePrefab[0]);
                     break;
 
             }

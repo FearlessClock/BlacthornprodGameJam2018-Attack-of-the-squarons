@@ -54,11 +54,23 @@ MonoBehaviour:
   phaseSettings:
     shapesArray: []
     phaseDuration: 0
-  circlePrefab: {fileID: 1243827408649612, guid: d6b6dc80637b6234ab06264b06eb0d7a,
-    type: 2}
-  squarePrefab: {fileID: 1694258305093116, guid: 7a156a7787192144fb0034e87d288cd3,
-    type: 2}
-  trianglePrefab: {fileID: 1724310157791170, guid: 11185df6a1414ee47a0e1207e9df0ccb,
-    type: 2}
+  circlePrefab:
+  - {fileID: 1243827408649612, guid: d6b6dc80637b6234ab06264b06eb0d7a, type: 2}
+  - {fileID: 1616248125924020, guid: 37b2b639d7438f44ab2ffcaed1cf75b7, type: 2}
+  - {fileID: 1806725476457452, guid: 3f32fe782d3f09b4abd16485074c71a8, type: 2}
+  - {fileID: 1376629699566518, guid: dd42108e37215294da6a5aab52280848, type: 2}
+  - {fileID: 1638899758562348, guid: 9ed10753f911db04fbd7242c0001d83b, type: 2}
+  squarePrefab:
+  - {fileID: 1818704746439172, guid: 0da0ffb35a360074aa906baae1c7d0b6, type: 2}
+  - {fileID: 1694258305093116, guid: 7a156a7787192144fb0034e87d288cd3, type: 2}
+  - {fileID: 1414850094189140, guid: 396bff11b9e83b04e8e1a898c89cd747, type: 2}
+  - {fileID: 1511550254201800, guid: 3d6a1e5d0641822459bd6ba02b7ac893, type: 2}
+  - {fileID: 1831072974908974, guid: 3652c2f6acc8688439cc504efcf0f34f, type: 2}
+  trianglePrefab:
+  - {fileID: 1724310157791170, guid: 11185df6a1414ee47a0e1207e9df0ccb, type: 2}
+  - {fileID: 1089765085476134, guid: 940d736ea412313488dc0799dffc441f, type: 2}
+  - {fileID: 1405928305374554, guid: be5117a710383314abf8f0007d0c48ed, type: 2}
+  - {fileID: 1806958032590824, guid: 78c0d9bed0be6614cb0c057efe7a33de, type: 2}
+  - {fileID: 1935289543026412, guid: 27025a89f4d423146a258800257da893, type: 2}
   time: 0
-  spellLocation: {x: 0, y: 0, z: 0}
+  spellLocation: {fileID: 0}
