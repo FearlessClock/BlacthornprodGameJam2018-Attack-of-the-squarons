@@ -23,12 +23,14 @@ public class TalkBubble : MonoBehaviour {
 
     public void NextBubble()
     {
-        Debug.Log("Wesh");
         currentPosition++;
         if(currentPosition >= words.Length)
         {
             UI.SetActive(false);
         }
-        text.text = words[currentPosition];
+        else
+        {
+            text.text = words[currentPosition];
+        }
     }
 }
