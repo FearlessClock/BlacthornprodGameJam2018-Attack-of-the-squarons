@@ -550,10 +550,14 @@ MonoBehaviour:
   spell1Settings:
     phasesArray: []
     manaCost: 0
+    code: 
   spell2Settings:
     phasesArray: []
     manaCost: 0
+    code: 
   spellDirection: {fileID: 4297290394013914}
+  timeBTWEffectUpdates: 0
+  MaxTimeBTWEffectUpdates: 0.2
   maxHp: 100
   currentHp: 0
   maxMana: 6
@@ -565,13 +569,13 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   initScaleXHB: 0
   manaBar: {fileID: 0}
+  audioSource: {fileID: 82830320400097176}
+  takenDamage: {fileID: 8300000, guid: 4d13c8f32ed5fdd42a273b8589acff20, type: 3}
   initScaleXMB: 0
   sightRange: 12.84
   attackRange: 4.5
   scaredRange: 3.5
   distanceToPlayer: 5.13
-  audioSource: {fileID: 82830320400097176}
-  takenDamage: {fileID: 8300000, guid: 4d13c8f32ed5fdd42a273b8589acff20, type: 3}
   collisionCheckSize: 1
   wallLayerMask:
     serializedVersion: 2
@@ -591,9 +595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6500175d33238954b9a07bf5cf436f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellBookLocation1: Assets/Resources/EnemySpell.json
-  spellBookLocation2: Assets/Resources/EnemySpell.json
+  spellBookLocation1: Assets/Resources/EnemySpells/EnemySpell2Poison.json
+  spellBookLocation2: Assets/Resources/EnemySpells/EnemySpell2Death.json
   code: {fileID: 0}
+  codeSetter: {fileID: 0}
   spellInterpreter: {fileID: 0}
   creature: {fileID: 114282307041907720}
   spellParent: {fileID: 0}
