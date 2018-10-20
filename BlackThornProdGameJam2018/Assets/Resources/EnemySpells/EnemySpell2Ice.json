@@ -1,0 +1,36 @@
+{
+    "phasesArray": [
+        {
+            "shapesArray": [
+                {
+                    "posX": -1.0,
+                    "posY": 1.0,
+                    "duration": 1.0,
+                    "size": 0.800000011920929,
+                    "manaCost": 1.7161760330200196,
+                    "type": "circle",
+                    "elementalType": "ice",
+                    "damage": 1.0
+                }
+            ],
+            "phaseDuration": 0.5
+        },
+        {
+            "shapesArray": [
+                {
+                    "posX": 1.0,
+                    "posY": 1.0,
+                    "duration": 1.0,
+                    "size": 0.800000011920929,
+                    "manaCost": 1.7161760330200196,
+                    "type": "circle",
+                    "elementalType": "poison",
+                    "damage": 1.0
+                }
+            ],
+            "phaseDuration": 0.0
+        }
+    ],
+    "manaCost": 3.432352066040039,
+    "code": "circle(-1,1,1,1,0.8,ice);\ndelay(0.5);\ncircle(1,1,1,1,0.8,ice);​​​​"
+}

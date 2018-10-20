@@ -1,0 +1,21 @@
+{
+    "phasesArray": [
+        {
+            "shapesArray": [
+                {
+                    "posX": 0.0,
+                    "posY": 2.0,
+                    "duration": 1.0,
+                    "size": 0.5,
+                    "manaCost": 1.7333333492279053,
+                    "type": "triangle",
+                    "elementalType": "death",
+                    "damage": 1.0
+                }
+            ],
+            "phaseDuration": 0.0
+        }
+    ],
+    "manaCost": 1.7333333492279053,
+    "code": "triangle(0,2,1,1,0.5,fire);​​​"
+}
