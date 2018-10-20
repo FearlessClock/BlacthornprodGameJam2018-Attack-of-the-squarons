@@ -45,7 +45,8 @@ public class SpellGenerator : MonoBehaviour
     public void GenerateSpell(Transform spellLoc)
     {
         spellLocation = spellLoc;
-        this.transform.position = spellLoc.position;
+        Debug.Log(spellLoc.position);
+        this.transform.localPosition = spellLoc.position;
         this.transform.rotation = spellLoc.rotation;
         StartCoroutine(CoroutineGenerateShape());
     }

@@ -11,6 +11,7 @@ public class SpellJson{
       
     public PhaseJson[] phasesArray;
     public float manaCost;
+    public string code;
 	public void AddPhase(PhaseJson p)
 	{
 		phases.Add(p);

@@ -44,6 +44,7 @@ public class SpellInterpreter : MonoBehaviour {
         SpellJson spellJson = new SpellJson();
         
         string[] sepCode = null;
+        spellJson.code = code;
         code = code.Replace("\n", "");
         sepCode = code.Split(';');
         PhaseJson currentPhase = new PhaseJson();
@@ -62,7 +63,9 @@ public class SpellInterpreter : MonoBehaviour {
                         currentPhase.FinishShapeAdding();
                         spellJson.AddPhase(currentPhase);
                         currentPhase = new PhaseJson();
-                    }else if (tillParan.Equals(functions[i]))
+                        foundFunction = true;
+                    }
+                    else if (tillParan.Equals(functions[i]))
                     {
                             try
                             {
@@ -131,7 +134,15 @@ public class SpellInterpreter : MonoBehaviour {
         }
         if (funcParams.Length == 6)
         {
-            shape = AddShape(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]), Convert.ToInt32(funcParams[4]), funcParams[5], type);
+            try
+            {
+                shape = AddShape(Convert.ToInt32(funcParams[0]), Convert.ToInt32(funcParams[1]), Convert.ToInt32(funcParams[2]), Convert.ToInt32(funcParams[3]), Convert.ToInt32(funcParams[4]), funcParams[5], type);
+            }
+            catch (FormatException)
+            {
+                LogToConsole("There was a format error, check the parameters");
+                throw;
+            }
         }
         else if(funcParams.Length > 6)
         {

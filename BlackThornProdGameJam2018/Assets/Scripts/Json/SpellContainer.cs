@@ -35,6 +35,7 @@ public class SpellContainer: MonoBehaviour {
     SpellJson spellSettings;
 
     public TextMeshProUGUI code;
+    public TMP_InputField codeSetter;
     public SpellInterpreter spellInterpreter;
 
     public Creature creature;
@@ -55,12 +56,17 @@ public class SpellContainer: MonoBehaviour {
         if (creature != null){
             creature.spell1Settings = spellSettings;
         }
+        if (spell1 != null && spell1.isOn)
+        {
+            codeSetter.text = (spellSettings.code);
+        }
         spellSettings = JsonUtility.FromJson<SpellJson>(spellsText2);
 
         if (creature != null)
         {
             creature.spell2Settings = spellSettings;
         }
+
     }
 
     public void OnToggleChangedSpell1()
@@ -80,7 +86,7 @@ public class SpellContainer: MonoBehaviour {
         //Interpret the code written by the player
         currentSpellJson = spellInterpreter.InterpretScript(code.text);
         //Turn the json into an actaul spell
-        GameObject spellObj = Instantiate<GameObject>(creature.spellGenerator);
+        GameObject spellObj = Instantiate<GameObject>(creature.spellGenerator, Vector3.zero, Quaternion.identity);
         spellObj.transform.parent = spellParent;
         currentSpell = spellObj.GetComponent<SpellGenerator>();
         currentSpell.spellSettings = currentSpellJson;

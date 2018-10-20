@@ -2023,9 +2023,11 @@ MonoBehaviour:
   spell1Settings:
     phasesArray: []
     manaCost: 0
+    code: 
   spell2Settings:
     phasesArray: []
     manaCost: 0
+    code: 
   spellDirection: {fileID: 0}
   maxHp: 0
   currentHp: 0
@@ -3427,6 +3429,7 @@ MonoBehaviour:
   spellBookLocation1: Assets/Resources/spell1.json
   spellBookLocation2: Assets/Resources/spell2.json
   code: {fileID: 1280756560}
+  codeSetter: {fileID: 1805449362}
   spellInterpreter: {fileID: 1805449366}
   creature: {fileID: 1218923052}
   spellParent: {fileID: 1984573935}

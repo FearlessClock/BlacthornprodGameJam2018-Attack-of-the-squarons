@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049066817550036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2.19, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcd1f755739cf94cb20bce1561815bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerTag: 
   spellSettings:
     phasesArray: []
+    manaCost: 0
+    code: 
   phase: {fileID: 1507662468031044, guid: 327938c4d590dce4eaba184c2b932747, type: 2}
-  spellLocation: {x: 0, y: 0, z: 0}
+  spellLocation: {fileID: 0}
