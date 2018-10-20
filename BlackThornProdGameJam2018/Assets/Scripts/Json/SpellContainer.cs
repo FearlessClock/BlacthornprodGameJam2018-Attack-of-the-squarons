@@ -67,13 +67,15 @@ public class SpellContainer: MonoBehaviour {
         {
             creature.spell2Settings = spell2Settings;
         }
-
-        spell1.onValueChanged.AddListener(delegate {
-            OnToggleChangedSpell1();
-        });
-        spell2.onValueChanged.AddListener(delegate {
-            OnToggleChangedSpell1();
-        });
+        if(spell1 != null && spell2 != null)
+        {
+            spell1.onValueChanged.AddListener(delegate {
+                OnToggleChangedSpell1();
+            });
+            spell2.onValueChanged.AddListener(delegate {
+                OnToggleChangedSpell1();
+            });
+        }
 
     }
 
