@@ -41,17 +41,6 @@ public class MonsterController : Monster {
     {
         switch (type)
         {
-            case ElementalType.normal: // CHANGE TO NORMAL EFFECT
-                NormalEffect norEffect = new NormalEffect();
-
-                norEffect.spellType = ElementalType.normal;
-                norEffect.shapeId = shapeId;
-                norEffect.monster = gameObject;
-
-                norEffect.InitEffect(10f, 1f);
-
-                spellEffects.Add(norEffect);
-                break;
             case ElementalType.fire:
                 FireEffect fireEffect = new FireEffect();
 
@@ -63,12 +52,11 @@ public class MonsterController : Monster {
 
                 spellEffects.Add(fireEffect);
                 break;
-            case ElementalType.water:
-                break;
+
             case ElementalType.ice:
                 IceEffect iceEffect = new IceEffect();
 
-                iceEffect.spellType = ElementalType.normal;
+                iceEffect.spellType = ElementalType.ice;
                 iceEffect.shapeId = shapeId;
                 iceEffect.monster = gameObject;
 
@@ -76,13 +64,41 @@ public class MonsterController : Monster {
 
                 spellEffects.Add(iceEffect);
                 break;
+
             case ElementalType.earth:
+                earthEffect earthEffect = new earthEffect();
+
+                earthEffect.spellType = ElementalType.earth;
+                earthEffect.shapeId = shapeId;
+                earthEffect.monster = gameObject;
+
+                earthEffect.InitEffect(10f, 1f, 5f, 1f, 10f);
+
+                spellEffects.Add(earthEffect);
                 break;
+
             case ElementalType.death:
+                deathEffect deathEffect = new deathEffect();
+
+                deathEffect.spellType = ElementalType.death;
+                deathEffect.shapeId = shapeId;
+                deathEffect.monster = gameObject;
+
+                deathEffect.InitEffect(10f, 1f, 5f, 1f, 10f);
+
+                spellEffects.Add(deathEffect);
                 break;
+
             case ElementalType.poison:
-                break;
-            case ElementalType.lightning:
+                poisonEffect poisonEffect = new poisonEffect();
+
+                poisonEffect.spellType = ElementalType.poison;
+                poisonEffect.shapeId = shapeId;
+                poisonEffect.monster = gameObject;
+
+                poisonEffect.InitEffect(10f, 1f, 5f, 1f, 10f);
+
+                spellEffects.Add(poisonEffect);
                 break;
             default:
                 break;
