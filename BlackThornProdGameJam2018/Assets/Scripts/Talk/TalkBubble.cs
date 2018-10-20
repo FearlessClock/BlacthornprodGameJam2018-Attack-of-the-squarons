@@ -9,9 +9,14 @@ public class TalkBubble : MonoBehaviour {
     public int currentPosition;
     public TextMeshProUGUI text;
     public GameObject UI;
+    public string playerPrefString;
     // Use this for initialization
     void Start()
     {
+        if(PlayerPrefs.GetInt(playerPrefString, 0) == 1)
+        {
+            UI.SetActive(false);
+        }
         text.text = words[currentPosition];
     }
 
@@ -27,6 +32,7 @@ public class TalkBubble : MonoBehaviour {
         if(currentPosition >= words.Length)
         {
             UI.SetActive(false);
+            PlayerPrefs.SetInt(playerPrefString, 1);
         }
         else
         {
