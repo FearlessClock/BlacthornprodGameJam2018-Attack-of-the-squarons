@@ -18187,6 +18187,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114211318173984474, guid: 058f86bb1edf9654f9788a95d0e86f6c,
+        type: 2}
+      propertyPath: monsterHolder
+      value: 
+      objectReference: {fileID: 67299149}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 058f86bb1edf9654f9788a95d0e86f6c, type: 2}
   m_IsPrefabAsset: 0
@@ -22072,7 +22077,7 @@ Prefab:
     - target: {fileID: 20588845130759066, guid: cce5a9198ea03e6448bb40ff40f63266,
         type: 2}
       propertyPath: orthographic size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cce5a9198ea03e6448bb40ff40f63266, type: 2}
