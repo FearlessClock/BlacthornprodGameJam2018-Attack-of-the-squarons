@@ -5753,22 +5753,27 @@ Prefab:
     - target: {fileID: 114657138429027064, guid: 42b87938c29e63049908644c26af677c,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114657138429027064, guid: 42b87938c29e63049908644c26af677c,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114447742183303382, guid: 42b87938c29e63049908644c26af677c,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114447742183303382, guid: 42b87938c29e63049908644c26af677c,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114969953504961056, guid: 42b87938c29e63049908644c26af677c,
+        type: 2}
+      propertyPath: playerPrefString
+      value: FirstLaunch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42b87938c29e63049908644c26af677c, type: 2}
