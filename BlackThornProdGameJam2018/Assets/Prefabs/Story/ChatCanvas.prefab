@@ -570,9 +570,12 @@ MonoBehaviour:
   - These trianglons have been ravaging our lands for years!
   - They are vile creatures!
   - You must eliminate them! Rid this world of their foul presence!
+  - Go use your "Magic Spell Maker 9000" by pression the "H" key on your keyboard
+    when you're close enough !
   currentPosition: 0
   text: {fileID: 114447742183303382}
   UI: {fileID: 1473522839022456}
+  playerPrefString: FirstLaunch
 --- !u!222 &222037736768243022
 CanvasRenderer:
   m_ObjectHideFlags: 1

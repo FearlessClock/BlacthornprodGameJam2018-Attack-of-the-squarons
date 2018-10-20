@@ -5660,11 +5660,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114969953504961056, guid: 42b87938c29e63049908644c26af677c,
-        type: 2}
-      propertyPath: words.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 224557412876814562, guid: 42b87938c29e63049908644c26af677c,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -5774,12 +5769,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114969953504961056, guid: 42b87938c29e63049908644c26af677c,
-        type: 2}
-      propertyPath: words.Array.data[5]
-      value: Go use your "Magic Spell Maker 9000" by pression the "H" key on your
-        keyboard when you're close enough !
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42b87938c29e63049908644c26af677c, type: 2}
