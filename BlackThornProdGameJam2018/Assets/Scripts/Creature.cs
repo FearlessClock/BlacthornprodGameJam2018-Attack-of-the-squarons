@@ -47,7 +47,7 @@ public class Creature: MonoBehaviour
     {
         if (spellEffects.Count > 0)
         {
-            audioSource.PlayOneShot(takenDamage);
+            //audioSource.PlayOneShot(takenDamage);
         }
         // Apply effects
         int i = 0;
@@ -144,6 +144,7 @@ public class Creature: MonoBehaviour
 
     public void AddEffect(ElementalType type, int shapeId)
     {
+        Debug.Log("Add effect: " + gameObject.tag);
         switch (type)
         {
             case ElementalType.fire:

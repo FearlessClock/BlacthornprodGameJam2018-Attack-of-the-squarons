@@ -37,7 +37,7 @@ public class poisonEffect : SpellEffect
         damInShapeCurTime -= Time.deltaTime;
         if (damInShapeCurTime <= 0)
         {
-            monster.GetComponent<MonsterController>().Damage(damInShape);
+            monster.GetComponent<Creature>().Damage(damInShape);
             damInShapeCurTime = damInShapeProcTime;
         }
 
@@ -51,7 +51,7 @@ public class poisonEffect : SpellEffect
 
         if (damOverTimeCurTime <= 0)
         {
-            monster.GetComponent<MonsterController>().Damage(damOverTime);
+            monster.GetComponent<Creature>().Damage(damOverTime);
             damOverTimeCurTime = damOverTimeProcTime;
         }
     }
