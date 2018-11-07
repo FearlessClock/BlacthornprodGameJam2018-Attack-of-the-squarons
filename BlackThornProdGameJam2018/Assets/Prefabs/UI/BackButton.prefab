@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbb7b9d1d10c44479bf1bbf8ca347fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  isPaused: 0
 --- !u!114 &114591277528720386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,7 +295,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114374405599941480}
-        m_MethodName: BackToHQ
+        m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
