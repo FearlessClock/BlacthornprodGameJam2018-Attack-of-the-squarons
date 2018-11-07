@@ -3,7 +3,7 @@
         {
             "shapesArray": [
                 {
-                    "posX": 0.0,
+                    "posX": 1.0,
                     "posY": 0.0,
                     "duration": 1.0,
                     "size": 0.5,
@@ -18,8 +18,8 @@
                     "duration": 1.0,
                     "size": 0.5,
                     "manaCost": 1.5333333015441895,
-                    "type": "square",
-                    "elementalType": "death",
+                    "type": "circle",
+                    "elementalType": "fire",
                     "damage": 1.0
                 }
             ],

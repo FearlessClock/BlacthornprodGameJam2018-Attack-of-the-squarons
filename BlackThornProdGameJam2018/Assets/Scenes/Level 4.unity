@@ -19248,7 +19248,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272176891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9043509, y: -0.59076977, z: -2.3554688}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -29679,6 +29679,11 @@ Prefab:
       propertyPath: Spells
       value: 
       objectReference: {fileID: 1272176892}
+    - target: {fileID: 114919171157344604, guid: 8b0e1629fe0f12446b94c5907510413c,
+        type: 2}
+      propertyPath: maxMana
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0e1629fe0f12446b94c5907510413c, type: 2}
   m_IsPrefabAsset: 0

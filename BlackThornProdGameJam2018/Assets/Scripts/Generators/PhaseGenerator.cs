@@ -20,8 +20,7 @@ public class PhaseGenerator : MonoBehaviour {
 
     public void GenerateShapes(Transform spellLoc){
         spellLocation = spellLoc;
-        this.transform.position = spellLoc.position;
-        this.transform.rotation = Quaternion.Inverse(spellLoc.rotation);
+        this.transform.SetPositionAndRotation(spellLoc.position, Quaternion.Inverse(spellLoc.rotation));
         StartCoroutine(CoroutineGenerateShape());
     }
 
